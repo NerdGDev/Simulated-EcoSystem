@@ -20,12 +20,12 @@ MonoBehaviour:
     m_ColorVelocity: {r: 0, g: 1, b: 0, a: 0.4}
   m_DestinationConfig:
     m_Report: 1
-    m_AngleDeviationThreshold: 0.78
+    m_AngleDeviationThreshold: 0.2
     m_ColorGoalArea: {r: 0, g: 1, b: 0, a: 0.103}
     m_ColorWaypoints: {r: 1, g: 0, b: 0, a: 0.447}
     m_ColorWaypointsNode: {r: 1, g: 0, b: 0, a: 1}
   m_StaticObstacleFleeConfig:
     m_Enable: 1
-    m_InSightDistanceBias: 2
-    m_SafeDistanceBias: 2
+    m_InSightDistanceBias: 3
+    m_SafeDistanceBias: 5
     m_FleeColor: {r: 1, g: 1, b: 0, a: 0.1}

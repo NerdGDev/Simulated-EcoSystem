@@ -8,16 +8,12 @@ public class Carrier : UnitBase
 {
     Resource resource;
 
-#if UNITY_EDITOR
-    public Resource testTargetFrom;
-    public Resource testTargetTo;
-#endif
 
     void Awake()
     {
         base.Awake();
         resource = GetComponent<Resource>();
-        StartCoroutine(DemoRun());
+        type = ObjectType.CARRIER;
     }
 
     // Start is called before the first frame update
@@ -32,52 +28,12 @@ public class Carrier : UnitBase
         
     }
 
-#if UNITY_EDITOR
-    IEnumerator DemoRun() 
+    public void DeliverResource(Resource from, Resource to) 
     {
-        yield return new WaitForSeconds(3f);
-        DeliverResource(testTargetFrom, testTargetTo);
-    }
-#endif
-
-    void DeliverResource(Resource from, Resource to) 
-    {
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject));});
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(from.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { go.StartCoroutine(Goto(to.gameObject)); });
-        AddOrder((go) => { go.StartCoroutine(GiveResource(to)); });
+        AddOrder((go) => { StartCoroutine(Goto(from.gameObject)); });
+        AddOrder((go) => { StartCoroutine(TakeResource(from)); });
+        AddOrder((go) => { StartCoroutine(Goto(to.gameObject)); });
+        AddOrder((go) => { StartCoroutine(GiveResource(to)); });
     }
 
     IEnumerator TakeResource(Resource target) 

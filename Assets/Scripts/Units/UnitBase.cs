@@ -17,11 +17,14 @@ public class UnitBase : ManageObject
 
     public delegate void OrderDelegate(MonoBehaviour go);
 
+    public HomeManager home;
+
     public virtual void Awake()
-    {
+    {        
         m_Agent = GetComponent<FlyAgent.Agents.FlyAgent>();
         m_Collider = GetComponent<Collider>();
         Debug.Log(m_Agent);
+        type = ObjectType.BASE;
     }
 
     // Start is called before the first frame update
@@ -49,21 +52,73 @@ public class UnitBase : ManageObject
     {
         OrderQueue.Dequeue();
         if (OrderQueue.Count > 0)
+        {
             OrderQueue.Peek().Invoke(this);
+        }
+        else if (home) 
+        {
+            Debug.LogError("Returning Home");
+            AddOrder((go) => { go.StartCoroutine(Goto(home.gameObject)); });
+            AddOrder((go) => { go.StartCoroutine(Land()); });
+        }
+            
     }
 
     protected IEnumerator Goto(GameObject target)
     {
+        if (target.GetComponent<Collider>())
+        {
+            m_Agent.m_ArrivedDistance = 
+                target.GetComponent<Collider>().bounds.size.magnitude > 30f ? 
+                target.GetComponent<Collider>().bounds.size.magnitude : 30f;
+            m_Agent.m_BrakingDistance = 
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f > 45f ?
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f : 45f;
+        }
+        else
+        {
+            m_Agent.m_BrakingDistance = 60f;
+            m_Agent.m_ArrivedDistance = 30f;
+        }
+
         Debug.Log(gameObject.name);
         Debug.Log(target.name);
         Debug.Log(target.transform.position);
         Debug.Log(m_Agent);
+
         m_Agent.SetDestination(target.transform.position);
+
         yield return new WaitForSeconds(2f);
+
         while (m_Agent.HasDestination())
         {
             yield return new WaitForFixedUpdate();
         }
+
         NextOrder();
+    }
+
+    protected IEnumerator Land() 
+    {
+        yield return new WaitForEndOfFrame();
+
+        GameObject hangar = home.GetHangar();
+
+        m_Agent.m_ArrivedDistance = 1;
+        m_Agent.SetDestination(hangar.transform.position);
+
+        yield return new WaitForSeconds(2f);
+
+        while (m_Agent.HasDestination())
+        {
+            yield return new WaitForFixedUpdate();
+        }
+
+        home.Dock(this);
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(this.gameObject, 0f);
+
     }
 }

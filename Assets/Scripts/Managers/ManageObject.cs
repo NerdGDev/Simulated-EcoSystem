@@ -13,7 +13,7 @@ public class ManageObject : MonoBehaviour
         CARRIER,
         MINER
     }
-    public ObjectType type{ get; private set; }
+    public ObjectType type{ get; protected set; }
 
     GameManager gameManager;
 
