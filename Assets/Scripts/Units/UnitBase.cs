@@ -59,7 +59,7 @@ public class UnitBase : ManageObject
         {
             Debug.LogError("Returning Home");
             AddOrder((go) => { go.StartCoroutine(Goto(home.gameObject)); });
-            AddOrder((go) => { go.StartCoroutine(Land()); });
+            AddOrder((go) => { go.StartCoroutine(LandAtHome()); });
         }
             
     }
@@ -77,7 +77,7 @@ public class UnitBase : ManageObject
         }
         else
         {
-            m_Agent.m_BrakingDistance = 60f;
+            m_Agent.m_BrakingDistance = 50f;
             m_Agent.m_ArrivedDistance = 30f;
         }
 
@@ -98,21 +98,55 @@ public class UnitBase : ManageObject
         NextOrder();
     }
 
-    protected IEnumerator Land() 
+    protected IEnumerator LandAtHome() 
     {
         yield return new WaitForEndOfFrame();
 
         GameObject hangar = home.GetHangar();
 
-        m_Agent.m_ArrivedDistance = 1;
-        m_Agent.SetDestination(hangar.transform.position);
+        m_Agent.m_ArrivedDistance = 5f;
+        m_Agent.m_BrakingDistance = 20f;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForEndOfFrame();
+
+        m_Agent.SetDestination(hangar.transform.position);
+        Debug.Log("Docking Sent");        
 
         while (m_Agent.HasDestination())
         {
             yield return new WaitForFixedUpdate();
         }
+
+        Debug.Log("Docking Done");
+
+        home.Dock(this);
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(this.gameObject, 0f);
+
+    }
+
+    protected IEnumerator Land(HomeManager manager)
+    {
+        yield return new WaitForEndOfFrame();
+
+        GameObject hangar = manager.GetHangar();
+
+        m_Agent.m_ArrivedDistance = 5f;
+        m_Agent.m_BrakingDistance = 20f;
+
+        yield return new WaitForEndOfFrame();
+
+        m_Agent.SetDestination(hangar.transform.position);
+        Debug.Log("Docking Sent");
+
+        while (m_Agent.HasDestination())
+        {
+            yield return new WaitForFixedUpdate();
+        }
+
+        Debug.Log("Docking Done");
 
         home.Dock(this);
 

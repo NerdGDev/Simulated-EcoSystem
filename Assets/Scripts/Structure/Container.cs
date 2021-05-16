@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Resourcing;
 
+[RequireComponent(typeof(Resource))]
 public class Container : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Resource resource;
+
+    private void Awake()
     {
-        
+        resource = GetComponent<Resource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public float GetPool() 
     {
-        
+        return resource.Pool;
     }
 }
