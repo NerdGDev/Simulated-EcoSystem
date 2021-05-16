@@ -11,11 +11,10 @@ public class UnitBase : ManageObject
 
     protected FlyAgent.Agents.FlyAgent m_Agent;
 
+    public delegate void OrderDelegate(MonoBehaviour go);
     protected Queue<OrderDelegate> OrderQueue = new Queue<OrderDelegate>();
 
-    protected Collider m_Collider;
-
-    public delegate void OrderDelegate(MonoBehaviour go);
+    protected Collider m_Collider;    
 
     public HomeManager home;
 
@@ -69,16 +68,16 @@ public class UnitBase : ManageObject
         if (target.GetComponent<Collider>())
         {
             m_Agent.m_ArrivedDistance = 
-                target.GetComponent<Collider>().bounds.size.magnitude > 30f ? 
-                target.GetComponent<Collider>().bounds.size.magnitude : 30f;
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f > 30f ? 
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f : 30f;
             m_Agent.m_BrakingDistance = 
-                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f > 45f ?
-                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f : 45f;
+                target.GetComponent<Collider>().bounds.size.magnitude * 3f > 60f ?
+                target.GetComponent<Collider>().bounds.size.magnitude * 3f : 60f;
         }
         else
         {
-            m_Agent.m_BrakingDistance = 50f;
-            m_Agent.m_ArrivedDistance = 30f;
+            m_Agent.m_BrakingDistance = 80f;
+            m_Agent.m_ArrivedDistance = 10f;
         }
 
         Debug.Log(gameObject.name);
@@ -104,8 +103,10 @@ public class UnitBase : ManageObject
 
         GameObject hangar = home.GetHangar();
 
-        m_Agent.m_ArrivedDistance = 5f;
-        m_Agent.m_BrakingDistance = 20f;
+        m_Agent.m_ArrivedDistance = 30f;
+        m_Agent.m_BrakingDistance = 60f;
+        m_Agent.m_AugularAngleSpeed = 30f;
+        m_Agent.m_MaxSpeed = 30f;
 
         yield return new WaitForEndOfFrame();
 
@@ -133,8 +134,10 @@ public class UnitBase : ManageObject
 
         GameObject hangar = manager.GetHangar();
 
-        m_Agent.m_ArrivedDistance = 5f;
-        m_Agent.m_BrakingDistance = 20f;
+        m_Agent.m_ArrivedDistance = 30f;
+        m_Agent.m_BrakingDistance = 60f;
+        m_Agent.m_AugularAngleSpeed = 30f;
+        m_Agent.m_MaxSpeed = 30f;
 
         yield return new WaitForEndOfFrame();
 

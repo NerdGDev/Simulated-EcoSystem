@@ -105,24 +105,28 @@ namespace Resourcing
 
         private void OnDrawGizmos()
         {
-            if (debugReport == null)
-                debugReport = new StringBuilder(1000);
-            else
-                debugReport.Remove(0, debugReport.Length);
-
-            debugReport.AppendLine("Pool: " + Pool.ToString() + " / " + MaxPool.ToString());
-            debugReport.AppendLine("Busy: " + TransferBusy);
-
-            debugReport.AppendLine("Target: " + ((TransferTarget != null) ? TransferTarget.name : "No Target"));
-            GizmosExtend.DrawLabel(transform.position + Vector3.up, debugReport.ToString(), InfoStyle);
-
-            if (Application.isPlaying)
+            if (DisplayPool) 
             {
-                if (TransferTarget)
+                if (debugReport == null)
+                    debugReport = new StringBuilder(1000);
+                else
+                    debugReport.Remove(0, debugReport.Length);
+
+                debugReport.AppendLine("Pool: " + Pool.ToString() + " / " + MaxPool.ToString());
+                debugReport.AppendLine("Busy: " + TransferBusy);
+
+                debugReport.AppendLine("Target: " + ((TransferTarget != null) ? TransferTarget.name : "No Target"));
+                GizmosExtend.DrawLabel(transform.position + Vector3.up, debugReport.ToString(), InfoStyle);
+
+                if (Application.isPlaying)
                 {
-                    Gizmos.DrawLine(m_Collider.bounds.center, TransferTarget.m_Collider.bounds.center);
+                    if (TransferTarget)
+                    {
+                        Gizmos.DrawLine(m_Collider.bounds.center, TransferTarget.m_Collider.bounds.center);
+                    }
                 }
             }
+            
         }
 
     }

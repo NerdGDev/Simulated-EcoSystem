@@ -43,7 +43,7 @@ public class HomeManager : MonoBehaviour
     private Dictionary<HomeManager, List<Civilian>> HomeManagerHandlers = new Dictionary<HomeManager, List<Civilian>>();
     #endregion
 
-    public delegate void LaunchDelegate();
+    public delegate void LaunchDelegate(GameObject go);
     protected Queue<LaunchDelegate> LaunchQueue = new Queue<LaunchDelegate>();
 
     private void Awake()
@@ -112,10 +112,14 @@ public class HomeManager : MonoBehaviour
     {
         while (true)
         {
-            if (LaunchQueue.Count > 0)
+            foreach(GameObject hangar in HangarBay) 
             {
-                LaunchQueue.Dequeue().Invoke();
+                if (LaunchQueue.Count > 0)
+                {
+                    LaunchQueue.Dequeue().Invoke(hangar);
+                }
             }
+            
 
             yield return new WaitForSeconds(1f);
         }
@@ -128,7 +132,7 @@ public class HomeManager : MonoBehaviour
         while (true)
         {
             UpdateCivilianMission();
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(Random.Range(0.75f, 3f));
         }
     }
 
@@ -151,18 +155,17 @@ public class HomeManager : MonoBehaviour
     {
         foreach (var item in HomeManagerHandlers)
         {
-            LaunchQueue.Enqueue(() =>
+            LaunchQueue.Enqueue((hangar) =>
             {
-                LaunchNewCivilian(item.Key);
+                LaunchNewCivilian(hangar, item.Key);
             });
         }
         
 
     }
 
-    void LaunchNewCivilian(HomeManager destination) 
+    void LaunchNewCivilian(GameObject hangar, HomeManager destination) 
     {
-        GameObject hangar = HangarBay[Random.Range(0, HangarBay.Length)];
         Debug.Log("Launching New Civilian");
         GameObject go = Instantiate(
             CivilianPrefabs[Random.Range(0, CarrierPrefabs.Length)],
@@ -175,7 +178,7 @@ public class HomeManager : MonoBehaviour
     IEnumerator LaunchCivilianMission(GameObject go, HomeManager destination) 
     {
         Debug.Log("Sending Carrier Mission");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForFixedUpdate();
         go.GetComponent<Civilian>().TravelTo(destination);
     }
 
@@ -185,7 +188,7 @@ public class HomeManager : MonoBehaviour
         foreach (var item in ContainerHandlers) 
         {
             Debug.Log("Checking Container Assignement");
-            if (item.Value.Count >= 0 && item.Value.Count < 3) 
+            if (item.Value.Count >= 0 && item.Value.Count < CarrierMax) 
             {
                 Debug.Log(item);
                 Debug.Log(item.Key);
@@ -197,18 +200,17 @@ public class HomeManager : MonoBehaviour
                 if (pool - (300 * item.Value.Count) > 0) 
                 {
                     Debug.Log("Sending Carrier to Queue");
-                    LaunchQueue.Enqueue(() =>
+                    LaunchQueue.Enqueue((hangar) =>
                     {
-                        LaunchNewCarrier(item.Key);
+                        LaunchNewCarrier(hangar, item.Key);
                     });
                 }
             }
         }
     }
 
-    GameObject LaunchNewCarrier(Container target) 
+    GameObject LaunchNewCarrier(GameObject hangar, Container target) 
     {
-        GameObject hangar = HangarBay[Random.Range(0, HangarBay.Length)];
         Debug.Log("Launching New Carrier");
         GameObject go = Instantiate(
             CarrierPrefabs[Random.Range(0,CarrierPrefabs.Length)],
@@ -224,7 +226,7 @@ public class HomeManager : MonoBehaviour
     IEnumerator LaunchCarrierMission(GameObject go, Container target) 
     {
         Debug.Log("Sending Carrier Mission");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForFixedUpdate();
         go.GetComponent<Carrier>().DeliverResource(
             target.GetComponent<Resource>(),
             GetComponent<Resource>());
