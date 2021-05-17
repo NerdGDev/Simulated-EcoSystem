@@ -20,6 +20,7 @@ public class HomeManager : MonoBehaviour
     [Header("Civilian Ships")]
     public GameObject[] CivilianPrefabs;
     public int CivilianMax;
+    private int CurrentCivilians;
     public float CivilianRange;
 
     [Header("Carrier Ships")]
@@ -40,7 +41,7 @@ public class HomeManager : MonoBehaviour
 
     #region Mission Assignment Dictionaries
     private Dictionary<Container, List<Carrier>> ContainerHandlers = new Dictionary<Container, List<Carrier>>();
-    private Dictionary<HomeManager, List<Civilian>> HomeManagerHandlers = new Dictionary<HomeManager, List<Civilian>>();
+    private List<HomeManager> HomeManagerHandlers = new List<HomeManager>();
     #endregion
 
     public delegate void LaunchDelegate(GameObject go);
@@ -48,6 +49,9 @@ public class HomeManager : MonoBehaviour
 
     private void Awake()
     {
+        CurrentCivilians = CivilianMax;
+
+
         FindContainers();
         FindHomemanagers();
 
@@ -87,10 +91,10 @@ public class HomeManager : MonoBehaviour
 
             if (current != null && current != this)
             {
-                if (!HomeManagerHandlers.ContainsKey(current))
+                if (!HomeManagerHandlers.Contains(current))
                 {
                     Debug.LogError("Add HomeManager");
-                    HomeManagerHandlers.Add(current, new List<Civilian>());
+                    HomeManagerHandlers.Add(current);
                 }
             }
         }
@@ -121,18 +125,18 @@ public class HomeManager : MonoBehaviour
             }
             
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(5f);
         }
 
     }
 
     IEnumerator CivilianUpdater()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(20f);
         while (true)
         {
             UpdateCivilianMission();
-            yield return new WaitForSeconds(Random.Range(0.75f, 3f));
+            yield return new WaitForSeconds(Random.Range(5f, 10f));
         }
     }
 
@@ -155,10 +159,15 @@ public class HomeManager : MonoBehaviour
     {
         foreach (var item in HomeManagerHandlers)
         {
-            LaunchQueue.Enqueue((hangar) =>
+            if (!(CurrentCivilians <= 0)) 
             {
-                LaunchNewCivilian(hangar, item.Key);
-            });
+                LaunchQueue.Enqueue((hangar) =>
+                {
+                    CurrentCivilians--;
+                    LaunchNewCivilian(hangar, item);
+                });
+            }
+            
         }
         
 
@@ -167,11 +176,16 @@ public class HomeManager : MonoBehaviour
     void LaunchNewCivilian(GameObject hangar, HomeManager destination) 
     {
         Debug.Log("Launching New Civilian");
+
         GameObject go = Instantiate(
-            CivilianPrefabs[Random.Range(0, CarrierPrefabs.Length)],
+            CivilianPrefabs[Random.Range(0, CivilianPrefabs.Length)],
             hangar.transform.position,
-            hangar.transform.rotation);
+            Quaternion.LookRotation(hangar.transform.localPosition));
+
         go.GetComponent<UnitBase>().home = this;
+
+        //go.GetComponent<Rigidbody>().AddForce(hangar.transform.localPosition.normalized * 300f);
+
         StartCoroutine(LaunchCivilianMission(go, destination));
     }
 
@@ -212,12 +226,18 @@ public class HomeManager : MonoBehaviour
     GameObject LaunchNewCarrier(GameObject hangar, Container target) 
     {
         Debug.Log("Launching New Carrier");
+
         GameObject go = Instantiate(
             CarrierPrefabs[Random.Range(0,CarrierPrefabs.Length)],
             hangar.transform.position,
             hangar.transform.rotation);
+
         go.GetComponent<UnitBase>().home = this;
+
         ContainerHandlers[target].Add(go.GetComponent<Carrier>());
+
+        //go.GetComponent<Rigidbody>().AddForce(hangar.transform.localPosition.normalized * 300f);
+
         StartCoroutine(LaunchCarrierMission(go, target));
 
         return go;
@@ -239,15 +259,19 @@ public class HomeManager : MonoBehaviour
 
     public void Dock(UnitBase unit) 
     {
-        if (unit.type == ManageObject.ObjectType.CARRIER) 
+        if (unit.type == ManageObject.ObjectType.CARRIER)
         {
             foreach (var item in ContainerHandlers)
             {
-                if (item.Value.Contains(unit.GetComponent<Carrier>())) 
+                if (item.Value.Contains(unit.GetComponent<Carrier>()))
                 {
                     item.Value.Remove(unit.GetComponent<Carrier>());
                 }
             }
+        }
+        else if (unit.type == ManageObject.ObjectType.CIVILIAN) 
+        {
+            CurrentCivilians++;
         }
         
     }

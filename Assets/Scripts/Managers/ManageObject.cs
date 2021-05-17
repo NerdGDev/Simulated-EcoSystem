@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ManageObject : MonoBehaviour
 {
+    [Header("Game Configuration")]
+    public float UpdateFrequency = 1f;
+
     // All Units Types Needed Here
     public enum ObjectType
     {

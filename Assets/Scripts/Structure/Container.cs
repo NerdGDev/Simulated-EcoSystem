@@ -8,7 +8,7 @@ public class Container : MonoBehaviour
 {
     public Resource resource;
 
-    private void Awake()
+    protected void Awake()
     {
         resource = GetComponent<Resource>();
     }

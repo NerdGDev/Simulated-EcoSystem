@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1713849280246055450}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 8928697419541267466}
   - {fileID: 2793026739889761339}
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb7390ce3946d444a81ba7009d7d045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpdateFrequency: 0
   Busy: 0
   home: {fileID: 0}
 --- !u!114 &-4193110693616061738
@@ -67,8 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: -6633595292078370299}
-  m_MaxSpeed: 50
-  m_AugularAngleSpeed: 50
+  m_MaxSpeed: 150
+  m_AugularAngleSpeed: 150
   m_AccelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -104,7 +105,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_AccelerationTime: 5
   m_BrakingDistance: 200
-  m_MaxBrakingForce: 8
+  m_MaxBrakingForce: 3
   m_DecelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -139,16 +140,16 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_ArrivedDistance: 3
-  m_UpwardBias: 1
+  m_UpwardBias: 0
   m_Direction: 2
-  m_Radius: 0.7
+  m_Radius: 0.5
   m_Length: 0
   m_Offset: 0
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
   m_QueryTriggerInteraction: 0
-  m_Quality: 3
+  m_Quality: 1
   m_Behaviour: {fileID: 11400000, guid: 260e9f460ee747840ac43ce1c5c90069, type: 2}
 --- !u!114 &-1225985763926383111
 MonoBehaviour:

@@ -38,7 +38,7 @@ public class Carrier : UnitBase
 
     IEnumerator TakeResource(Resource target) 
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForUpdate();
         Debug.Log(m_Collider);
         Debug.Log(resource);
         Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange);
@@ -61,15 +61,15 @@ public class Carrier : UnitBase
 
         while (target.TransferBusy)
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(UpdateFrequency);
         }
         resource.TransferFrom(target);
 
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(UpdateFrequency);
 
         while (resource.TransferBusy)
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(UpdateFrequency);
         }
 
         NextOrder();
@@ -98,15 +98,15 @@ public class Carrier : UnitBase
 
         while (target.TransferBusy)
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(UpdateFrequency);
         }
         resource.TransferTo(target);
 
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(UpdateFrequency);
 
         while (resource.TransferBusy)
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(UpdateFrequency);
         }
 
         NextOrder();

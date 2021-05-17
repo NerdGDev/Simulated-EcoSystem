@@ -8,7 +8,7 @@ public class Civilian : UnitBase
     void Awake()
     {
         base.Awake();
-        type = ObjectType.CARRIER;
+        type = ObjectType.CIVILIAN;
     }
 
     // Start is called before the first frame update
@@ -25,7 +25,6 @@ public class Civilian : UnitBase
 
     public void TravelTo(HomeManager home) 
     {
-        AddOrder((go) => { go.StartCoroutine(Goto(home.gameObject)); });
         AddOrder((go) => { go.StartCoroutine(Land(home)); });
     }
 }

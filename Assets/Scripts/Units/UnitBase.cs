@@ -68,16 +68,16 @@ public class UnitBase : ManageObject
         if (target.GetComponent<Collider>())
         {
             m_Agent.m_ArrivedDistance = 
-                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f > 30f ? 
-                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f : 30f;
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.2f > 30f ? 
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.2f : 30f;
             m_Agent.m_BrakingDistance = 
-                target.GetComponent<Collider>().bounds.size.magnitude * 3f > 60f ?
-                target.GetComponent<Collider>().bounds.size.magnitude * 3f : 60f;
+                target.GetComponent<Collider>().bounds.size.magnitude * 2.5f > 60f ?
+                target.GetComponent<Collider>().bounds.size.magnitude * 2.5f : 60f;
         }
         else
         {
             m_Agent.m_BrakingDistance = 80f;
-            m_Agent.m_ArrivedDistance = 10f;
+            m_Agent.m_ArrivedDistance = 30f;
         }
 
         Debug.Log(gameObject.name);
@@ -89,9 +89,9 @@ public class UnitBase : ManageObject
 
         yield return new WaitForSeconds(2f);
 
-        while (m_Agent.HasDestination())
+        while (m_Agent.HasDestination() || (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100))
         {
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(UpdateFrequency);
         }
 
         NextOrder();
@@ -99,30 +99,28 @@ public class UnitBase : ManageObject
 
     protected IEnumerator LandAtHome() 
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(UpdateFrequency);
 
         GameObject hangar = home.GetHangar();
 
-        m_Agent.m_ArrivedDistance = 30f;
-        m_Agent.m_BrakingDistance = 60f;
-        m_Agent.m_AugularAngleSpeed = 30f;
-        m_Agent.m_MaxSpeed = 30f;
+        m_Agent.m_ArrivedDistance = 10f;
+        m_Agent.m_BrakingDistance = 80f;
 
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(UpdateFrequency);
 
         m_Agent.SetDestination(hangar.transform.position);
-        Debug.Log("Docking Sent");        
+        Debug.Log("Docking Sent");
 
-        while (m_Agent.HasDestination())
+        while (m_Agent.HasDestination() || (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100))
         {
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(UpdateFrequency);
         }
 
         Debug.Log("Docking Done");
 
         home.Dock(this);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(UpdateFrequency);
 
         Destroy(this.gameObject, 0f);
 
@@ -130,30 +128,28 @@ public class UnitBase : ManageObject
 
     protected IEnumerator Land(HomeManager manager)
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(UpdateFrequency);
 
         GameObject hangar = manager.GetHangar();
 
-        m_Agent.m_ArrivedDistance = 30f;
-        m_Agent.m_BrakingDistance = 60f;
-        m_Agent.m_AugularAngleSpeed = 30f;
-        m_Agent.m_MaxSpeed = 30f;
+        m_Agent.m_ArrivedDistance = 10f;
+        m_Agent.m_BrakingDistance = 80f;
 
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(UpdateFrequency);
 
         m_Agent.SetDestination(hangar.transform.position);
         Debug.Log("Docking Sent");
 
-        while (m_Agent.HasDestination())
+        while (m_Agent.HasDestination() || (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100))
         {
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(UpdateFrequency);
         }
 
         Debug.Log("Docking Done");
 
         home.Dock(this);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(UpdateFrequency);
 
         Destroy(this.gameObject, 0f);
 

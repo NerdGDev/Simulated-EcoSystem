@@ -334,7 +334,7 @@ namespace FlyAgent.Agents
 		#endregion
 
 		#region Pilot - Destination Control (Path finding)
-		private Pilot m_Pilot;
+		public Pilot m_Pilot { get; private set; }
 
 		/// <summary>only if agent still in travel</summary>
 		/// <returns></returns>

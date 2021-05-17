@@ -7,10 +7,10 @@ using Kit;
 namespace Resourcing 
 {
     [RequireComponent(typeof(Collider)), RequireComponent(typeof(Visualise)), RequireComponent(typeof(Debuggable))]
-    public class Resource : MonoBehaviour 
+    public class Resource : MonoBehaviour
     {
         [Header("Resource")]
-        public float StartingPool;        
+        public float StartingPool;
         public float MaxPool;
         public float TransferRate;
         public float TransferRange;
@@ -29,8 +29,10 @@ namespace Resourcing
         private StringBuilder debugReport;
         private static GUIStyle InfoStyle;
 
+        public GameObject m_ParticleObject;
+
         public void Awake()
-        {            
+        {
             Pool = StartingPool > MaxPool ? MaxPool : StartingPool;
             m_Collider = GetComponent<Collider>();
             TransferBusy = false;
@@ -93,6 +95,7 @@ namespace Resourcing
             target.TransferBusy = true;
             TransferTarget = target;
             target.TransferTarget = this;
+            StartCoroutine(StartCargoAnim());
         }
 
         private void _UnlockTransfer(Resource target)
@@ -101,11 +104,13 @@ namespace Resourcing
             target.TransferBusy = false;
             TransferTarget = null;
             target.TransferTarget = null;
+            StopCoroutine(StartCargoAnim());
+            StartCoroutine(EndCargoAnim());
         }
 
         private void OnDrawGizmos()
         {
-            if (DisplayPool) 
+            if (DisplayPool)
             {
                 if (debugReport == null)
                     debugReport = new StringBuilder(1000);
@@ -126,7 +131,23 @@ namespace Resourcing
                     }
                 }
             }
+
+        }
+
+        IEnumerator StartCargoAnim() 
+        {
+            yield return new WaitForFixedUpdate();
             
+            while (true) 
+            {
+            
+            }
+
+        }
+
+        IEnumerator EndCargoAnim() 
+        {
+            yield return new WaitForFixedUpdate();
         }
 
     }
