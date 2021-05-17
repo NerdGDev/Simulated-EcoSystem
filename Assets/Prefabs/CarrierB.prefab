@@ -441,13 +441,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingPool: 0
   MaxPool: 300
-  TransferRate: 100
-  TransferRange: 60
+  TransferRate: 20
+  TransferRange: 50
   Pool: 0
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
   m_Collider: {fileID: 0}
+  m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
+    type: 3}
 --- !u!114 &7546441272039836309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +527,7 @@ MonoBehaviour:
     m_Bits: 4294967291
   m_QueryTriggerInteraction: 0
   m_Quality: 2
-  m_Behaviour: {fileID: 11400000, guid: 260e9f460ee747840ac43ce1c5c90069, type: 2}
+  m_Behaviour: {fileID: 11400000, guid: 6322ec0322425d143bfd40addc1ae5c3, type: 2}
 --- !u!114 &2550860898112419291
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -114,12 +114,14 @@ MonoBehaviour:
   StartingPool: 5000
   MaxPool: 5000
   TransferRate: 150
-  TransferRange: 30
+  TransferRange: 10
   Pool: 0
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
   m_Collider: {fileID: 0}
+  m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
+    type: 3}
 --- !u!114 &6543927479131980439
 MonoBehaviour:
   m_ObjectHideFlags: 0

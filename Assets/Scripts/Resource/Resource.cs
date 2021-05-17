@@ -29,7 +29,9 @@ namespace Resourcing
         private StringBuilder debugReport;
         private static GUIStyle InfoStyle;
 
+
         public GameObject m_ParticleObject;
+        private GameObject m_Particle;
 
         public void Awake()
         {
@@ -58,24 +60,25 @@ namespace Resourcing
         private IEnumerator _Load(Resource sender)
         {
             _LockTransfer(sender);
+            float highestRate = TransferRate > sender.TransferRate ? TransferRate : sender.TransferRate;
             while (true)
             {
                 if (
-                    Pool + (sender.TransferRate * Time.deltaTime) < MaxPool &&
-                    sender.Pool - (sender.TransferRate * Time.deltaTime) > 0
+                    Pool + (highestRate * Time.deltaTime) < MaxPool &&
+                    sender.Pool - (highestRate * Time.deltaTime) > 0
                     )
                 {
-                    sender.Pool -= sender.TransferRate * Time.deltaTime;
-                    Pool += sender.TransferRate * Time.deltaTime;
+                    sender.Pool -= highestRate * Time.deltaTime;
+                    Pool += highestRate * Time.deltaTime;
                 }
-                else if (Pool + (sender.TransferRate * Time.deltaTime) >= MaxPool)
+                else if (Pool + (highestRate * Time.deltaTime) >= MaxPool)
                 {
-                    float overflow = sender.TransferRate * Time.deltaTime - (Pool + (sender.TransferRate * Time.deltaTime) - MaxPool);
+                    float overflow = highestRate * Time.deltaTime - (Pool + (highestRate * Time.deltaTime) - MaxPool);
                     sender.Pool -= overflow;
                     Pool += overflow;
                     break;
                 }
-                else if (sender.Pool - (sender.TransferRate * Time.deltaTime) <= 0)
+                else if (sender.Pool - (highestRate * Time.deltaTime) <= 0)
                 {
                     float overflow = sender.Pool;
                     sender.Pool -= overflow;
@@ -137,10 +140,17 @@ namespace Resourcing
         IEnumerator StartCargoAnim() 
         {
             yield return new WaitForFixedUpdate();
-            
+            m_Particle = Instantiate(m_ParticleObject,TransferTarget.transform.position, Quaternion.LookRotation(transform.position - TransferTarget.transform.position));
+
+            ParticleSystem ps = m_Particle.GetComponent<ParticleSystem>();
+            var main = ps.main;
+
             while (true) 
             {
-            
+                m_Particle.transform.position = TransferTarget.transform.position;
+                m_Particle.transform.rotation = Quaternion.LookRotation(transform.position - TransferTarget.transform.position);
+                main.startLifetime = (transform.position - TransferTarget.transform.position).magnitude / main.startSpeed.constant;
+                yield return new WaitForFixedUpdate();
             }
 
         }
@@ -148,6 +158,7 @@ namespace Resourcing
         IEnumerator EndCargoAnim() 
         {
             yield return new WaitForFixedUpdate();
+            Destroy(m_Particle);
         }
 
     }

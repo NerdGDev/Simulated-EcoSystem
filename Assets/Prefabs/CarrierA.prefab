@@ -149,13 +149,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingPool: 0
   MaxPool: 300
-  TransferRate: 100
-  TransferRange: 60
+  TransferRate: 20
+  TransferRange: 50
   Pool: 0
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
   m_Collider: {fileID: 0}
+  m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
+    type: 3}
 --- !u!114 &8748570606631654128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +235,7 @@ MonoBehaviour:
     m_Bits: 4294967291
   m_QueryTriggerInteraction: 0
   m_Quality: 2
-  m_Behaviour: {fileID: 11400000, guid: 260e9f460ee747840ac43ce1c5c90069, type: 2}
+  m_Behaviour: {fileID: 11400000, guid: 6322ec0322425d143bfd40addc1ae5c3, type: 2}
 --- !u!114 &6162286777551426564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5624146024210523709}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.598, y: 0.269, z: 0}
+  m_LocalPosition: {x: 0.583, y: 0.299, z: -1.228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1525366525801383215}
@@ -429,7 +431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8304433224393965979}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.598, y: 0.269, z: 0}
+  m_LocalPosition: {x: -0.583, y: 0.299, z: -1.228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1525366525801383215}

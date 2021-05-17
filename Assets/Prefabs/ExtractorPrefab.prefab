@@ -48,15 +48,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417969b1c7f31c648a3e0915a0df98e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingPool: 0
-  MaxPool: 800
-  TransferRate: 50
+  StartingPool: 300
+  MaxPool: 1500
+  TransferRate: 20
   TransferRange: 50
   Pool: 0
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
   m_Collider: {fileID: 0}
+  m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
+    type: 3}
 --- !u!114 &871130196371070744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource: {fileID: 0}
-  GenerationRate: 150
+  GenerationRate: 450
 --- !u!136 &9101683436185234753
 CapsuleCollider:
   m_ObjectHideFlags: 0

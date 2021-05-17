@@ -89,7 +89,7 @@ public class UnitBase : ManageObject
 
         yield return new WaitForSeconds(2f);
 
-        while (m_Agent.HasDestination() || (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100))
+        while (m_Agent.HasDestination())
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }
@@ -111,7 +111,7 @@ public class UnitBase : ManageObject
         m_Agent.SetDestination(hangar.transform.position);
         Debug.Log("Docking Sent");
 
-        while (m_Agent.HasDestination() || (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100))
+        while (m_Agent.HasDestination() && (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || !(m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100)))
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }
@@ -140,7 +140,7 @@ public class UnitBase : ManageObject
         m_Agent.SetDestination(hangar.transform.position);
         Debug.Log("Docking Sent");
 
-        while (m_Agent.HasDestination() || (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100))
+        while (m_Agent.HasDestination() && (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || !(m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100)))
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }

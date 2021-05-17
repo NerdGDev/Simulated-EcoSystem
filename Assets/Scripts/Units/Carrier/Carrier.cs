@@ -8,7 +8,6 @@ public class Carrier : UnitBase
 {
     Resource resource;
 
-
     void Awake()
     {
         base.Awake();
