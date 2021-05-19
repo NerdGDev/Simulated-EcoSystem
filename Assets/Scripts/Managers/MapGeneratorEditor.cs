@@ -26,6 +26,11 @@ public class MapGeneratorEditor : Editor
             mapGen.BuildEnvironment();
         }
 
+        if (GUILayout.Button("Clear Environment"))
+        {
+            mapGen.ClearEnvironment();
+        }
+
         if (GUILayout.Button("Generate Octree Bakers"))
         {
             mapGen.BuildMapBakers();

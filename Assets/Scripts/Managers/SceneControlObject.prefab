@@ -64,6 +64,7 @@ MonoBehaviour:
   CubeSize: 500
   GridSize: 5
   StructureRoot: {fileID: 0}
+  StructureScale: 3
   HomeBase: {fileID: 6261611327537563111, guid: eefbb943b31090c45a73118868e0a93f,
     type: 3}
   HomeBaseCount: 5
@@ -74,9 +75,15 @@ MonoBehaviour:
     type: 3}
   ContainerCount: 2
   EnvironmentRoot: {fileID: 0}
-  RockAssets: []
+  RockAssets:
+  - {fileID: 919132149155446097, guid: 29f66567f8ab3774d91cfd16f704aba7, type: 3}
+  - {fileID: 919132149155446097, guid: 8d6094135fac75140abae2b64d5bb650, type: 3}
+  - {fileID: 919132149155446097, guid: 5823528fc2e4859448d357ad6ffc4c96, type: 3}
+  - {fileID: 919132149155446097, guid: d8cdb0066e97fe447b8b55208790f949, type: 3}
+  - {fileID: 919132149155446097, guid: 677b2100e29195a40b09bdcc52f77ce0, type: 3}
   Density: 0
-  MineralNode: {fileID: 0}
+  MineralNode: {fileID: 4584695584755706499, guid: 97d728615b708fe49a0fa0e5ca5b5902,
+    type: 3}
   MineralDensity: 0
 --- !u!1 &3883200952360739481
 GameObject:
