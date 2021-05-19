@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingPool: 300
   MaxPool: 1500
-  TransferRate: 100
+  TransferRate: 20
   TransferRange: 50
   Pool: 0
   TransferBusy: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource: {fileID: 0}
-  GenerationRate: 450
+  GenerationRate: 15
   rockPrefab: {fileID: 2107793629902437208, guid: 7d6e9d029209c7843b4fda9dd23d39f7,
     type: 3}
   rockTarget: {fileID: 1832861501366625795}
@@ -145,7 +145,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.71
+  m_Radius: 7
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0.79, z: 0}

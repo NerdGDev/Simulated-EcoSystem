@@ -22,7 +22,7 @@ public class UnitBase : ManageObject
     {        
         m_Agent = GetComponent<FlyAgent.Agents.FlyAgent>();
         m_Collider = GetComponent<Collider>();
-        Debug.Log(m_Agent);
+        //Debug.Log(m_Agent);
         type = ObjectType.BASE;
     }
 
@@ -54,9 +54,9 @@ public class UnitBase : ManageObject
         {
             OrderQueue.Peek().Invoke(this);
         }
-        else if (home) 
+        else if (home != null) 
         {
-            Debug.LogError("Returning Home");
+            //Debug.LogError("Returning Home");
             AddOrder((go) => { go.StartCoroutine(Goto(home.gameObject)); });
             AddOrder((go) => { go.StartCoroutine(LandAtHome()); });
         }
@@ -71,19 +71,19 @@ public class UnitBase : ManageObject
                 target.GetComponent<Collider>().bounds.size.magnitude * 1.2f > 20f ? 
                 target.GetComponent<Collider>().bounds.size.magnitude * 1.2f : 20f;
             m_Agent.m_BrakingDistance = 
-                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f > 50f ?
-                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f : 50f;
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f > 100f ?
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f : 100f;
         }
         else
         {
-            m_Agent.m_BrakingDistance = 50f;
+            m_Agent.m_BrakingDistance = 100f;
             m_Agent.m_ArrivedDistance = 20f;
         }
 
-        Debug.Log(gameObject.name);
-        Debug.Log(target.name);
-        Debug.Log(target.transform.position);
-        Debug.Log(m_Agent);
+        //Debug.Log(gameObject.name);
+        //Debug.Log(target.name);
+        //Debug.Log(target.transform.position);
+        //Debug.Log(m_Agent);
 
         m_Agent.SetDestination(target.transform.position);
 
@@ -109,14 +109,14 @@ public class UnitBase : ManageObject
         yield return new WaitForSeconds(UpdateFrequency);
 
         m_Agent.SetDestination(hangar.transform.position);
-        Debug.Log("Docking Sent");
+        //Debug.Log("Docking Sent");
 
         while (m_Agent.HasDestination() && (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || !(m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100)))
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }
 
-        Debug.Log("Docking Done");
+        //Debug.Log("Docking Done");
 
         home.Dock(this);
 
@@ -138,14 +138,14 @@ public class UnitBase : ManageObject
         yield return new WaitForSeconds(UpdateFrequency);
 
         m_Agent.SetDestination(hangar.transform.position);
-        Debug.Log("Docking Sent");
+        //Debug.Log("Docking Sent");
 
         while (m_Agent.HasDestination() && (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || !(m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100)))
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }
 
-        Debug.Log("Docking Done");
+        //Debug.Log("Docking Done");
 
         manager.Dock(this);
 

@@ -38,8 +38,8 @@ public class Carrier : UnitBase
     IEnumerator TakeResource(Resource target) 
     {
         yield return new WaitForUpdate();
-        Debug.Log(m_Collider);
-        Debug.Log(resource);
+        //Debug.Log(m_Collider);
+        //Debug.Log(resource);
         Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
 
         bool found = false;
@@ -53,7 +53,7 @@ public class Carrier : UnitBase
         }
         if (!found)
         {
-            Debug.LogError("NO TARGET");
+            //Debug.LogError("NO TARGET");
             NextOrder();
             yield break;
         }
@@ -90,7 +90,7 @@ public class Carrier : UnitBase
         }
         if (!found)
         {
-            Debug.LogError("NO TARGET");
+            //Debug.LogError("NO TARGET");
             NextOrder();
             yield break;
         }

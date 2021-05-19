@@ -5,21 +5,47 @@ using FlyAgent.Navigation;
 
 public class GameManager : MonoBehaviour
 {
-    
 
-    List<ManageObject> manageObjects;    
+    public static GameManager gameManager;
 
+    [Header("Threat")]
+    public GameObject ThreatPrefab;
+    public float SpawnFrequency;
+    public int SpawnCount;
 
-    // Start is called before the first frame update
-    void Start()
+    MapGenerator mapGen;
+
+    List<ManageObject> manageObjects;
+
+    private void Awake()
     {
-        
+        mapGen = GetComponent<MapGenerator>();
+        StartCoroutine(ThreatSpawner());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ThreatSpawner() 
     {
-        
+        GameObject ThreatRoot = Instantiate(new GameObject("Threat Root"));
+        yield return new WaitForFixedUpdate();
+        while (true) 
+        {
+            Vector3 spawnPos = GetRandomPointInSpace();
+            GameObject lead = Instantiate(ThreatPrefab, spawnPos, new Quaternion(), ThreatRoot.transform);
+            lead.GetComponent<Threat>().rad = mapGen.CubeSize * mapGen.GridSize / 2f;
+            lead.GetComponent<Threat>().StartThreat();
+            for (int x = 0; x < SpawnCount; x++) 
+            {
+                GameObject go = Instantiate(ThreatPrefab, spawnPos + (Random.insideUnitSphere * 200f), new Quaternion(), ThreatRoot.transform);
+                go.GetComponent<Threat>().rad = mapGen.CubeSize * mapGen.GridSize / 2f;
+                go.GetComponent<Threat>().StartThreat(lead.GetComponent<Threat>());
+            }
+            yield return new WaitForSeconds(SpawnFrequency);
+        }
+    }
+
+    public Vector3 GetRandomPointInSpace() 
+    {
+        return Random.insideUnitSphere * mapGen.CubeSize * mapGen.GridSize / 2f;
     }
 
     public bool AddObject(ManageObject manageObject)

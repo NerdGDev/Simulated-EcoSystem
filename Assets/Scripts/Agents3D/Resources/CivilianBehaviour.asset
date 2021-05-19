@@ -25,7 +25,7 @@ MonoBehaviour:
     m_ColorWaypoints: {r: 1, g: 0, b: 0, a: 0.447}
     m_ColorWaypointsNode: {r: 1, g: 0, b: 0, a: 1}
   m_StaticObstacleFleeConfig:
-    m_Enable: 0
-    m_InSightDistanceBias: 0.1
-    m_SafeDistanceBias: 0.1
+    m_Enable: 1
+    m_InSightDistanceBias: 2
+    m_SafeDistanceBias: 2
     m_FleeColor: {r: 1, g: 1, b: 0, a: 0.1}

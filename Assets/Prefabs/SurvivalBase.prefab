@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584058147934706355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6261611327537563112}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750727416703244402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: -2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6261611327537563112}
@@ -113,8 +113,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.938504
-  m_Height: 6.72
+  m_Radius: 1.5
+  m_Height: 6.5
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &10720048010490819
@@ -135,9 +135,10 @@ MonoBehaviour:
   ExtractorRange: 1500
   StorageRange: 900
   HomeRange: 3000
-  ResourceConsumptionRate: 1200
+  ResourceConsumptionRate: 120
   CivilianPrefabs:
   - {fileID: 1713849280246055450, guid: 83b17d195a0fb5d4db20a03d1d77753f, type: 3}
+  - {fileID: 1748852993431806244, guid: a96b891bac80e124b9647c9e3c44a748, type: 3}
   CivilianMax: 12
   CurrentCivilians: 0
   CivilianRange: 2000
@@ -168,9 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417969b1c7f31c648a3e0915a0df98e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingPool: 5000
-  MaxPool: 20000
-  TransferRate: 200
+  StartingPool: 2000
+  MaxPool: 6000
+  TransferRate: 150
   TransferRange: 50
   Pool: 0
   TransferBusy: 0

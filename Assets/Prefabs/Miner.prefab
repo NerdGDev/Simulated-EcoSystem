@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingPool: 0
-  MaxPool: 500
+  MaxPool: 250
   TransferRate: 10
   TransferRange: 50
   Pool: 0
@@ -406,7 +406,7 @@ Rigidbody:
   m_GameObject: {fileID: 4535513381549550483}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.05
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0

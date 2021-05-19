@@ -17,7 +17,7 @@ public class Miner : UnitBase
     {
         base.Awake();
         resource = GetComponent<Resource>();
-        type = ObjectType.CARRIER;
+        type = ObjectType.MINER;
     }
 
     public void MineFromNode(MineralMasterNode masterNode)
@@ -32,10 +32,10 @@ public class Miner : UnitBase
         float poolLimit = resource.MaxPool - resource.Pool;
         foreach (MineralNode node in masterNode.m_Nodes) 
         {
-            Debug.LogError("Looking at Mineral Node");
+            //Debug.LogError("Looking at Mineral Node");
             if (poolLimit - node.value >= 0 && !node.Assigned) 
             {
-                Debug.LogWarning("Node Found");
+                //Debug.LogWarning("Node Found");
                 node.Assign();
                 AddOrder((go) => { StartCoroutine(Goto(node.gameObject)); });
                 AddOrder((go) => { StartCoroutine(HarvestNode(node)); });                
@@ -64,7 +64,7 @@ public class Miner : UnitBase
         }
         if (!found)
         {
-            Debug.LogError("NO TARGET");
+            //Debug.LogError("NO TARGET");
             NextOrder();
             yield break;
         }
@@ -87,7 +87,7 @@ public class Miner : UnitBase
 
     IEnumerator HarvestNode(MineralNode node) 
     {
-        Debug.LogWarning("Harvesting Node");
+        //Debug.LogWarning("Harvesting Node");
         yield return new WaitForFixedUpdate();
         StartCoroutine(StartMiningAnim(node));
         node.Harvest();
@@ -129,12 +129,12 @@ public class Miner : UnitBase
 
     IEnumerator EndMiningAnim()
     {
-        Debug.LogWarning("Ending Anim");
+        //Debug.LogWarning("Ending Anim");
         yield return new WaitForFixedUpdate();
         foreach (GameObject go in m_Particle) 
         {
-            Debug.LogWarning("Destroy Anim");
-            Debug.LogWarning(go);
+            //Debug.LogWarning("Destroy Anim");
+            //Debug.LogWarning(go);
             Destroy(go);
         }
         yield return new WaitForFixedUpdate();

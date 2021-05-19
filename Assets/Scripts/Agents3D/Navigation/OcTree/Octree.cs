@@ -181,8 +181,9 @@ namespace FlyAgent.Navigation
 
 					// Obstacle movement test
 					m_Obstacles[cnt].StateCheck(timeSinceLevelLoad);
+					yield return new WaitForFixedUpdate();
 				}
-				yield return new WaitForSeconds(Random.Range(0.1f,0.4f));
+				yield return new WaitForFixedUpdate();
 			}
 		}
 

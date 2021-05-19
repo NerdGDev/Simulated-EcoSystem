@@ -36,7 +36,7 @@ namespace Resourcing
 
         public void Kill() 
         {
-            Debug.LogWarning("Killing Node");
+            //Debug.LogWarning("Killing Node");
             master.RemoveNode(this);
             Destroy(this.gameObject);
         }

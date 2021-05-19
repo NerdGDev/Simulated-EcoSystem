@@ -14,7 +14,8 @@ public class ManageObject : MonoBehaviour
         CIVILIAN,
         FIGHTER,
         CARRIER,
-        MINER
+        MINER,
+        THREAT
     }
     public ObjectType type{ get; protected set; }
 

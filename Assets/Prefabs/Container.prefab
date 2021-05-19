@@ -113,8 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingPool: 5000
   MaxPool: 5000
-  TransferRate: 150
-  TransferRange: 10
+  TransferRate: 60
+  TransferRange: 150
   Pool: 0
   TransferBusy: 0
   Visualisation: 0

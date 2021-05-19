@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636bf9bef92a31b4d9aef152687300c1, type: 3}
   m_Name: CarrierBehaviour
   m_EditorClassIdentifier: 
-  m_DebugDraw: 0
-  m_DebugLabel: 0
+  m_DebugDraw: 1
+  m_DebugLabel: 1
   m_EngineConfig:
     m_Report: 1
     m_ColorEngine: {r: 1, g: 1, b: 1, a: 0.4}
