@@ -10,11 +10,24 @@ public class Fighter : UnitBase
     public GameObject bulletPrefab;
     private GameObject m_Particle;
 
+    bool Pursuit = false;
+
+    Rigidbody rb;
+
     void Awake()
     {
         base.Awake();
         type = ObjectType.FIGHTER;
-        GetComponent<Rigidbody>().maxAngularVelocity = 100f;
+        rb = GetComponent<Rigidbody>();
+        rb.maxAngularVelocity = 100f;
+    }
+
+    private void FixedUpdate()
+    {
+        if (Pursuit) 
+        {
+            rb.AddForce(rb.velocity.normalized * 10f);
+        }
     }
 
     public void EngageTarget(Threat target) 
@@ -29,11 +42,12 @@ public class Fighter : UnitBase
 
         Coroutine coA = StartCoroutine(PursuitTarget(target));
         Coroutine coB = StartCoroutine(FireAtTarget(target));
-
+        Pursuit = true;
         while (target != null) 
         {
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(1f);            
         }
+        Pursuit = false;
         StopCoroutine(coA);
         StopCoroutine(coB);
 
@@ -62,6 +76,7 @@ public class Fighter : UnitBase
             {
                 m_Agent.SetDestination(target.transform.position);
             }
+            rb.AddForce((transform.position - target.transform.position).normalized * 12f);
             yield return new WaitForFixedUpdate();
         }
     }
@@ -86,7 +101,7 @@ public class Fighter : UnitBase
         m_Particle = Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(target.transform.position - transform.position));
         ParticleSystem ps = m_Particle.GetComponent<ParticleSystem>();
         var main = ps.main;
-        main.startLifetime = (target.transform.position - transform.position).magnitude / main.startSpeed.constant;
+        main.startLifetime = ((target.transform.position - transform.position).magnitude / main.startSpeed.constant) + 0.1f;
         yield return new WaitForSeconds((target.transform.position - transform.position).magnitude / main.startSpeed.constant);
         Destroy(ps.gameObject);
         target.Hit();

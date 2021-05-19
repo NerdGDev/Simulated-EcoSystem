@@ -442,7 +442,7 @@ MonoBehaviour:
   StartingPool: 0
   MaxPool: 300
   TransferRate: 20
-  TransferRange: 50
+  TransferRange: 300
   Pool: 0
   TransferBusy: 0
   Visualisation: 0

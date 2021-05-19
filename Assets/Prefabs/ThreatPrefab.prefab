@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 811669054723273127}
-  m_MaxSpeed: 20
-  m_AugularAngleSpeed: 20
+  m_MaxSpeed: 8
+  m_AugularAngleSpeed: 8
   m_AccelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -96,7 +96,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_AccelerationTime: 0
+  m_AccelerationTime: 3
   m_BrakingDistance: 800
   m_MaxBrakingForce: 1
   m_DecelerationCurve:
