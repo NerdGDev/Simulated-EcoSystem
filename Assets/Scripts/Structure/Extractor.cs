@@ -14,6 +14,8 @@ public class Extractor : Container
     public GameObject rockPrefab;
     public GameObject rockTarget;
 
+    public Quaternion rot;
+
     private void Awake()
     {
         base.Awake();

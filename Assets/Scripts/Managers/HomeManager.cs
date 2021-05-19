@@ -58,6 +58,8 @@ public class HomeManager : MonoBehaviour
         resource = GetComponent<Resource>();
 
         CurrentCivilians = CivilianMax;
+        CarrierCurrent = CarrierMax;
+        MinerCurrent = MinerMax;
 
         m_RCRSecond = ResourceConsumptionRate / 60f;
 
@@ -75,19 +77,19 @@ public class HomeManager : MonoBehaviour
 
     private void FindContainers()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, StorageRange);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, StorageRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
         foreach (Collider col in hitColliders)
         {
             Container current = col.transform.GetComponent<Container>();
 
-            Debug.Log("Has Hit");
-            Debug.Log(current);
+            Debug.LogWarning("Has Hit");
+            Debug.LogWarning(current);
 
             if (current != null)
             {
                 if (!ContainerHandlers.ContainsKey(current))
                 {
-                    Debug.Log("Add Hit");
+                    Debug.LogWarning("Add Container");
                     ContainerHandlers.Add(current, new List<Carrier>());
                 }
             }
@@ -96,7 +98,7 @@ public class HomeManager : MonoBehaviour
 
     private void FindHomemanagers()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, HomeRange);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, HomeRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
         foreach (Collider col in hitColliders)
         {
             HomeManager current = col.transform.GetComponent<HomeManager>();
@@ -114,7 +116,7 @@ public class HomeManager : MonoBehaviour
 
     private void FindMinerals()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, StorageRange);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, StorageRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
         foreach (Collider col in hitColliders)
         {
             MineralMasterNode current = col.transform.GetComponent<MineralMasterNode>();
@@ -206,11 +208,15 @@ public class HomeManager : MonoBehaviour
         {
             if (CurrentCivilians > 0) 
             {
-                CurrentCivilians--;
-                LaunchQueue.Enqueue((hangar) =>
-                {                    
-                    LaunchNewCivilian(hangar, item);
-                });
+                float weight = (transform.position - item.transform.position).magnitude / HomeRange;
+                if (weight > Random.Range(0f, 1f)) 
+                {
+                    CurrentCivilians--;
+                    LaunchQueue.Enqueue((hangar) =>
+                    {
+                        LaunchNewCivilian(hangar, item);
+                    });
+                }                
             }
             
         }
@@ -236,7 +242,7 @@ public class HomeManager : MonoBehaviour
 
     IEnumerator LaunchCivilianMission(GameObject go, HomeManager destination) 
     {
-        Debug.Log("Sending Carrier Mission");
+        Debug.Log("Sending Civilian Mission");
         yield return new WaitForFixedUpdate();
         go.GetComponent<Civilian>().TravelTo(destination);
     }
@@ -248,13 +254,14 @@ public class HomeManager : MonoBehaviour
         {
             Debug.Log("Checking Container Assignement");
             Debug.LogWarning(item.Value.Count);
-            if (CarrierCurrent < CarrierMax) 
+            if (CarrierCurrent > 0)
             {
                 float pool;
                 pool = item.Key.GetPool();
                 if (pool - (300 * item.Value.Count) > 0) 
                 {
                     CarrierCurrent--;
+                    ContainerHandlers[item.Key].Add(null);
                     Debug.Log("Sending Carrier to Queue");
                     LaunchQueue.Enqueue((hangar) =>
                     {
@@ -275,7 +282,8 @@ public class HomeManager : MonoBehaviour
             hangar.transform.rotation);
 
         go.GetComponent<UnitBase>().home = this;
-
+        ContainerHandlers[target].Remove(null);
+        
         ContainerHandlers[target].Add(go.GetComponent<Carrier>());
 
         //go.GetComponent<Rigidbody>().AddForce(hangar.transform.localPosition.normalized * 300f);
@@ -304,6 +312,7 @@ public class HomeManager : MonoBehaviour
             {
                 
                 Debug.LogError("Sending Miner to Queue");
+                MiningHandlers[item.Key].Add(null);
                 LaunchQueue.Enqueue((hangar) =>
                 {
                     LaunchNewMiner(hangar, item.Key);
@@ -315,7 +324,7 @@ public class HomeManager : MonoBehaviour
 
     GameObject LaunchNewMiner(GameObject hangar, MineralMasterNode target)
     {
-        Debug.Log("Launching New Carrier");
+        Debug.Log("Launching New Miner");
 
         GameObject go = Instantiate(
             MinerPrefabs[Random.Range(0, MinerPrefabs.Length)],
@@ -324,6 +333,7 @@ public class HomeManager : MonoBehaviour
 
         go.GetComponent<UnitBase>().home = this;
 
+        MiningHandlers[target].Remove(null);
         MiningHandlers[target].Add(go.GetComponent<Miner>());
 
         //go.GetComponent<Rigidbody>().AddForce(hangar.transform.localPosition.normalized * 300f);

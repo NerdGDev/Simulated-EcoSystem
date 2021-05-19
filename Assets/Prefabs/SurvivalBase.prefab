@@ -132,10 +132,10 @@ MonoBehaviour:
   HangarBay:
   - {fileID: 584058147934706355}
   - {fileID: 750727416703244402}
-  ExtractorRange: 900
+  ExtractorRange: 1500
   StorageRange: 900
-  HomeRange: 1500
-  ResourceConsumptionRate: 200
+  HomeRange: 3000
+  ResourceConsumptionRate: 1200
   CivilianPrefabs:
   - {fileID: 1713849280246055450, guid: 83b17d195a0fb5d4db20a03d1d77753f, type: 3}
   CivilianMax: 12
@@ -143,12 +143,13 @@ MonoBehaviour:
   CivilianRange: 2000
   CarrierPrefabs:
   - {fileID: 2188996167325032341, guid: cd517a499d938e444bcb0641b5a545a5, type: 3}
-  CarrierMax: 2
+  - {fileID: 8709357228797955563, guid: c31153e6c68e201409c084a15c334651, type: 3}
+  CarrierMax: 5
   CarrierCurrent: 0
   CarrierRange: 3000
   MinerPrefabs:
   - {fileID: 4535513381549550483, guid: 0167f5b5e010e1c439edcd6d41c5c2b0, type: 3}
-  MinerMax: 2
+  MinerMax: 3
   MinerCurrent: 0
   MiningRange: 1500
   FighterPrefabs:
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingPool: 5000
   MaxPool: 20000
-  TransferRate: 120
+  TransferRate: 200
   TransferRange: 50
   Pool: 0
   TransferBusy: 0

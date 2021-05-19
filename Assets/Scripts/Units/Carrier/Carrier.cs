@@ -40,7 +40,7 @@ public class Carrier : UnitBase
         yield return new WaitForUpdate();
         Debug.Log(m_Collider);
         Debug.Log(resource);
-        Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange);
+        Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
 
         bool found = false;
         foreach (var hitCollider in hitColliders)
@@ -77,7 +77,7 @@ public class Carrier : UnitBase
     IEnumerator GiveResource(Resource target)
     {
         yield return new WaitForEndOfFrame();
-        Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange);
+        Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
 
         bool found = false;
         foreach (var hitCollider in hitColliders)

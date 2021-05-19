@@ -42,6 +42,7 @@ public class MapGenerator : MonoBehaviour
     float rockRad = 0.45f;
     [Range(0,1)]
     public float Density;
+    public AnimationCurve ScaleCurve;
 
     public GameObject MineralNode;
     [Range(0, 1)]
@@ -116,10 +117,10 @@ public class MapGenerator : MonoBehaviour
                 }
                 validSpot = true;
                 pos = Random.insideUnitSphere * CubeSize * GridSize / 2;
-                Collider[] cols = Physics.OverlapSphere(pos, HomeBase.GetComponent<CapsuleCollider>().radius);
+                Collider[] cols = Physics.OverlapSphere(pos, HomeBase.GetComponent<CapsuleCollider>().radius * 1.5f);
 
                 DebugColliderPos = pos;
-                DebugSize = HomeBase.GetComponent<CapsuleCollider>().radius * 20;
+                DebugSize = HomeBase.GetComponent<CapsuleCollider>().radius * 1.5f;
 
                 yield return new EditorWaitForSeconds(0.01f);
                 foreach (Collider col in cols)
@@ -251,7 +252,7 @@ public class MapGenerator : MonoBehaviour
                 {
                     break;
                 }
-                randScale = Random.Range(30f, 100f);
+                randScale = ScaleCurve.Evaluate(Random.Range(0f,1f));
                 validSpot = true;
                 pos = Random.insideUnitSphere * CubeSize * GridSize / 2;
                 Collider[] cols = Physics.OverlapSphere(pos, rockRad * randScale);
