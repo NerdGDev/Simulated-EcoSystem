@@ -5,6 +5,7 @@ using Resourcing;
 
 namespace Resourcing 
 {    
+    [RequireComponent(typeof(Rigidbody))]
     public class MineralMasterNode : MonoBehaviour
     {
         Rigidbody rb;
@@ -18,7 +19,7 @@ namespace Resourcing
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
-            rb.angularVelocity = new Vector3(0, 0.1f, 0);
+            rb.angularVelocity = Random.onUnitSphere / 5f;
             StartCoroutine(ManageNode());
         }
 
@@ -31,11 +32,18 @@ namespace Resourcing
             {
                 if (m_Nodes.Count < NodeMax)
                 {
-                    Instantiate(MineralNode, transform.position + (Random.insideUnitSphere * 50f), new Quaternion());
+                    GameObject go = Instantiate(MineralNode, transform.position + (Random.insideUnitSphere * 50f), new Quaternion());
+                    m_Nodes.Add(go.GetComponent<MineralNode>());
+                    go.GetComponent<MineralNode>().master = this;
                 }
-                yield return new WaitForSeconds(12f);
+                yield return new WaitForSeconds(Random.Range(3f, 10f));
                 yield return new WaitForFixedUpdate();
             }
+        }
+
+        public void RemoveNode(MineralNode node) 
+        {
+            m_Nodes.Remove(node);
         }
     }
 }

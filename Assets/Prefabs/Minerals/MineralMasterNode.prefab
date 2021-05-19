@@ -53,8 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebbbb69b8a3a034fa0e60b101fc26c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NodeMax: 5
-  MineralNode: {fileID: 4584695584755706499}
+  NodeMax: 13
+  MineralNode: {fileID: 3170423215431824637, guid: 829b091161987b84dbc122e8f633e41e,
+    type: 3}
 --- !u!135 &4322592042478607958
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -66,7 +67,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8532377119663177562
 Rigidbody:

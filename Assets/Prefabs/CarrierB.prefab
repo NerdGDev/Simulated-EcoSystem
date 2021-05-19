@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingPool: 0
-  MaxPool: 300
+  MaxPool: 250
   TransferRate: 20
   TransferRange: 50
   Pool: 0
@@ -463,8 +463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 7113699908891806885}
-  m_MaxSpeed: 12
-  m_AugularAngleSpeed: 12
+  m_MaxSpeed: 60
+  m_AugularAngleSpeed: 60
   m_AccelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -489,7 +489,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_AccelerationTime: 5
+  m_AccelerationTime: 3
   m_BrakingDistance: 50
   m_MaxBrakingForce: 5
   m_DecelerationCurve:

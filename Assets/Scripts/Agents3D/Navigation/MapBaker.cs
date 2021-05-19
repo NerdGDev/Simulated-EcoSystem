@@ -11,7 +11,7 @@ namespace FlyAgent.Navigation
 		[SerializeField] float m_MinNodeSize = 0.5f;
 		[Tooltip("Clamped between 1 and 2. Values > 1 let nodes overlap.")]
 		[SerializeField] [Range(1f, 2f)] float m_LoosenessVal = 1f;
-		[SerializeField] float m_MinWorldSize = 10f;
+		[SerializeField] public float m_MinWorldSize = 10f;
 		static readonly Color BAKE_COLOR = new Color(0f, 1f, .5f, .5f);
 
 		[Header("Physical")]
@@ -56,6 +56,10 @@ namespace FlyAgent.Navigation
 		{
 			if (!Application.isPlaying &&
 				m_Octree == null)
+			{
+				GizmosExtend.DrawBounds(new Bounds(transform.position, Vector3.one * m_MinWorldSize), BAKE_COLOR);
+			}
+			else if (!Application.isPlaying) 
 			{
 				GizmosExtend.DrawBounds(new Bounds(transform.position, Vector3.one * m_MinWorldSize), BAKE_COLOR);
 			}

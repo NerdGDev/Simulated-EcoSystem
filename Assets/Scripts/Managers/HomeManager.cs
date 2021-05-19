@@ -16,22 +16,25 @@ public class HomeManager : MonoBehaviour
 
     [Header("Home Base Costs")]
     public float ResourceConsumptionRate;
+    private float m_RCRSecond;
 
     [Header("Civilian Ships")]
     public GameObject[] CivilianPrefabs;
     public int CivilianMax;
-    private int CurrentCivilians;
+    public int CurrentCivilians;
     public float CivilianRange;
 
     [Header("Carrier Ships")]
     public GameObject[] CarrierPrefabs;
     public int CarrierMax;
+    public int CarrierCurrent;
     public float CarrierRange;
     private List<Carrier> Carriers;
 
     [Header("Miner Ships")]
     public GameObject[] MinerPrefabs;
     public int MinerMax;
+    public int MinerCurrent;
     public float MiningRange;
 
     [Header("Fighter Ships")]
@@ -42,23 +45,32 @@ public class HomeManager : MonoBehaviour
     #region Mission Assignment Dictionaries
     private Dictionary<Container, List<Carrier>> ContainerHandlers = new Dictionary<Container, List<Carrier>>();
     private List<HomeManager> HomeManagerHandlers = new List<HomeManager>();
+    private Dictionary<MineralMasterNode, List<Miner>> MiningHandlers = new Dictionary<MineralMasterNode, List<Miner>>(); 
     #endregion
 
     public delegate void LaunchDelegate(GameObject go);
     protected Queue<LaunchDelegate> LaunchQueue = new Queue<LaunchDelegate>();
 
+    private Resource resource;
+
     private void Awake()
     {
+        resource = GetComponent<Resource>();
+
         CurrentCivilians = CivilianMax;
+
+        m_RCRSecond = ResourceConsumptionRate / 60f;
 
 
         FindContainers();
         FindHomemanagers();
+        FindMinerals();
 
         StartCoroutine(HangarLaunch());
 
         StartCoroutine(CivilianUpdater());
         StartCoroutine(CarrierUpdater());
+        StartCoroutine(MinerUpdater());
     }
 
     private void FindContainers()
@@ -100,6 +112,24 @@ public class HomeManager : MonoBehaviour
         }
     }
 
+    private void FindMinerals()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, StorageRange);
+        foreach (Collider col in hitColliders)
+        {
+            MineralMasterNode current = col.transform.GetComponent<MineralMasterNode>();
+
+            if (current != null)
+            {
+                if (!MiningHandlers.ContainsKey(current))
+                {
+                    Debug.LogError("Add Mineral");
+                    MiningHandlers.Add(current, new List<Miner>());
+                }
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +140,11 @@ public class HomeManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void FixedUpdate()
+    {
+        resource.Pool = resource.Pool - (m_RCRSecond * Time.fixedDeltaTime) < 0 ? 0 : resource.Pool - (m_RCRSecond * Time.fixedDeltaTime);
     }
 
     IEnumerator HangarLaunch()
@@ -125,28 +160,38 @@ public class HomeManager : MonoBehaviour
             }
             
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
         }
 
     }
 
     IEnumerator CivilianUpdater()
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForFixedUpdate();
         while (true)
         {
             UpdateCivilianMission();
-            yield return new WaitForSeconds(Random.Range(5f, 10f));
+            yield return new WaitForFixedUpdate();
         }
     }
 
     IEnumerator CarrierUpdater()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForFixedUpdate();
         while (true)
         {
             UpdateCarrierMissions();
-            yield return new WaitForSeconds(15f);
+            yield return new WaitForSeconds(5f);
+        }
+    }
+
+    IEnumerator MinerUpdater()
+    {
+        yield return new WaitForFixedUpdate();
+        while (true)
+        {
+            UpdateMinerMissions();
+            yield return new WaitForSeconds(5f);
         }
     }
 
@@ -159,11 +204,11 @@ public class HomeManager : MonoBehaviour
     {
         foreach (var item in HomeManagerHandlers)
         {
-            if (!(CurrentCivilians <= 0)) 
+            if (CurrentCivilians > 0) 
             {
+                CurrentCivilians--;
                 LaunchQueue.Enqueue((hangar) =>
-                {
-                    CurrentCivilians--;
+                {                    
                     LaunchNewCivilian(hangar, item);
                 });
             }
@@ -202,17 +247,14 @@ public class HomeManager : MonoBehaviour
         foreach (var item in ContainerHandlers) 
         {
             Debug.Log("Checking Container Assignement");
-            if (item.Value.Count >= 0 && item.Value.Count < CarrierMax) 
+            Debug.LogWarning(item.Value.Count);
+            if (CarrierCurrent < CarrierMax) 
             {
-                Debug.Log(item);
-                Debug.Log(item.Key);
-                Debug.Log(item.Value);
-                Debug.Log(item.Value.Count);
-                Debug.LogError(item.Key.resource);
                 float pool;
                 pool = item.Key.GetPool();
                 if (pool - (300 * item.Value.Count) > 0) 
                 {
+                    CarrierCurrent--;
                     Debug.Log("Sending Carrier to Queue");
                     LaunchQueue.Enqueue((hangar) =>
                     {
@@ -252,6 +294,52 @@ public class HomeManager : MonoBehaviour
             GetComponent<Resource>());
     }
 
+    void UpdateMinerMissions()
+    {
+        Debug.LogError("Update Miner");
+        foreach (var item in MiningHandlers)
+        {
+            Debug.LogError("Checking Mineral Assignement");
+            if (item.Value.Count >= 0 && item.Value.Count < MinerMax)
+            {
+                
+                Debug.LogError("Sending Miner to Queue");
+                LaunchQueue.Enqueue((hangar) =>
+                {
+                    LaunchNewMiner(hangar, item.Key);
+                });
+                
+            }
+        }
+    }
+
+    GameObject LaunchNewMiner(GameObject hangar, MineralMasterNode target)
+    {
+        Debug.Log("Launching New Carrier");
+
+        GameObject go = Instantiate(
+            MinerPrefabs[Random.Range(0, MinerPrefabs.Length)],
+            hangar.transform.position,
+            hangar.transform.rotation);
+
+        go.GetComponent<UnitBase>().home = this;
+
+        MiningHandlers[target].Add(go.GetComponent<Miner>());
+
+        //go.GetComponent<Rigidbody>().AddForce(hangar.transform.localPosition.normalized * 300f);
+
+        StartCoroutine(LaunchMinerMission(go, target));
+
+        return go;
+    }
+
+    IEnumerator LaunchMinerMission(GameObject go, MineralMasterNode target)
+    {
+        Debug.Log("Sending Miner Mission");
+        yield return new WaitForFixedUpdate();
+        go.GetComponent<Miner>().MineFromNode(target);
+    }
+
     public GameObject GetHangar() 
     {
         return HangarBay[Random.Range(0, HangarBay.Length)];
@@ -261,6 +349,7 @@ public class HomeManager : MonoBehaviour
     {
         if (unit.type == ManageObject.ObjectType.CARRIER)
         {
+            CarrierCurrent++;
             foreach (var item in ContainerHandlers)
             {
                 if (item.Value.Contains(unit.GetComponent<Carrier>()))
@@ -273,6 +362,22 @@ public class HomeManager : MonoBehaviour
         {
             CurrentCivilians++;
         }
+        else if (unit.type == ManageObject.ObjectType.MINER)
+        {
+            foreach (var item in MiningHandlers)
+            {
+                if (item.Value.Contains(unit.GetComponent<Miner>()))
+                {
+                    item.Value.Remove(unit.GetComponent<Miner>());
+                }
+            }
+        }
+
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
         
     }
 }

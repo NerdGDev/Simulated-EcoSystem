@@ -50,8 +50,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967291
   m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 0
-  m_ShowDepthOrder: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5

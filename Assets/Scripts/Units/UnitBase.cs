@@ -68,16 +68,16 @@ public class UnitBase : ManageObject
         if (target.GetComponent<Collider>())
         {
             m_Agent.m_ArrivedDistance = 
-                target.GetComponent<Collider>().bounds.size.magnitude * 1.2f > 30f ? 
-                target.GetComponent<Collider>().bounds.size.magnitude * 1.2f : 30f;
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.2f > 20f ? 
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.2f : 20f;
             m_Agent.m_BrakingDistance = 
-                target.GetComponent<Collider>().bounds.size.magnitude * 2.5f > 60f ?
-                target.GetComponent<Collider>().bounds.size.magnitude * 2.5f : 60f;
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f > 50f ?
+                target.GetComponent<Collider>().bounds.size.magnitude * 1.5f : 50f;
         }
         else
         {
-            m_Agent.m_BrakingDistance = 80f;
-            m_Agent.m_ArrivedDistance = 30f;
+            m_Agent.m_BrakingDistance = 50f;
+            m_Agent.m_ArrivedDistance = 20f;
         }
 
         Debug.Log(gameObject.name);
@@ -147,7 +147,7 @@ public class UnitBase : ManageObject
 
         Debug.Log("Docking Done");
 
-        home.Dock(this);
+        manager.Dock(this);
 
         yield return new WaitForSeconds(UpdateFrequency);
 

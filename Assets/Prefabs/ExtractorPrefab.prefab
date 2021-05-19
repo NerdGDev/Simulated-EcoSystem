@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1832861501366625795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 430520308340480447}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &430520308340480447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832861501366625795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8689545359802459298}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4344544056795819957
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +41,10 @@ GameObject:
   - component: {fileID: 8689545359802459298}
   - component: {fileID: 6685070311659302601}
   - component: {fileID: 871130196371070744}
-  - component: {fileID: 9101683436185234753}
   - component: {fileID: 4493377987556675165}
   - component: {fileID: 4526005672608148083}
+  - component: {fileID: 9101683436185234753}
+  - component: {fileID: 335540443343121035}
   m_Layer: 0
   m_Name: ExtractorPrefab
   m_TagString: Untagged
@@ -33,6 +64,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6282153383192502552}
+  - {fileID: 430520308340480447}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,20 +105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resource: {fileID: 0}
   GenerationRate: 450
---- !u!136 &9101683436185234753
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4344544056795819957}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.71
-  m_Height: 0
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.79, z: 0}
+  rockPrefab: {fileID: 2107793629902437208, guid: 7d6e9d029209c7843b4fda9dd23d39f7,
+    type: 3}
+  rockTarget: {fileID: 1832861501366625795}
 --- !u!114 &4493377987556675165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +132,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54acb16a70f40704f88f6a4c4be289f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &9101683436185234753
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344544056795819957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.71
+  m_Height: 0
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.79, z: 0}
+--- !u!54 &335540443343121035
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344544056795819957}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!1001 &2100111462233826429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -398,6 +449,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b838f37968a7316458b4924fff587eab,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b838f37968a7316458b4924fff587eab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b838f37968a7316458b4924fff587eab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b838f37968a7316458b4924fff587eab,
         type: 3}

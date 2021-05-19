@@ -4,9 +4,12 @@ using UnityEngine;
 
 namespace Resourcing 
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class MineralNode : MonoBehaviour
     {
+        Rigidbody rb;
 
+        public MineralMasterNode master;
         public float value;
 
         public bool Assigned;
@@ -14,7 +17,11 @@ namespace Resourcing
 
         private void Awake()
         {
-            value = Random.Range(1,16) * 10;
+            rb = GetComponent<Rigidbody>();
+            rb.angularVelocity = Random.onUnitSphere;
+            float size = Random.Range(5, 21);
+            value = size * 10f;
+            transform.localScale = new Vector3(size / 3, size / 3, size / 3);
         }
 
         public void Assign() 
@@ -27,6 +34,12 @@ namespace Resourcing
             Harvesting = true;
         }
 
+        public void Kill() 
+        {
+            Debug.LogWarning("Killing Node");
+            master.RemoveNode(this);
+            Destroy(this.gameObject);
+        }
 
     }
 }
