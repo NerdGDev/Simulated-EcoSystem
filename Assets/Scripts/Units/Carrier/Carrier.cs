@@ -29,14 +29,15 @@ public class Carrier : UnitBase
 
     public void DeliverResource(Resource from, Resource to) 
     {
-        AddOrder((go) => { StartCoroutine(Goto(from.gameObject)); });
+        AddOrder((go) => { StartCoroutine(Goto(from.gameObject, 75f)); });
         AddOrder((go) => { StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { StartCoroutine(Goto(to.gameObject)); });
+        AddOrder((go) => { StartCoroutine(Goto(to.gameObject, 90f)); });
         AddOrder((go) => { StartCoroutine(GiveResource(to)); });
     }
 
     IEnumerator TakeResource(Resource target) 
     {
+        state = "Collecting Resources";
         yield return new WaitForUpdate();
         //Debug.Log(m_Collider);
         //Debug.Log(resource);
@@ -58,10 +59,13 @@ public class Carrier : UnitBase
             yield break;
         }
 
+        state = "Waiting to Transfer";
         while (target.TransferBusy)
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }
+
+        state = "Transferring";
         resource.TransferFrom(target);
 
         yield return new WaitForSeconds(UpdateFrequency);
@@ -76,6 +80,7 @@ public class Carrier : UnitBase
 
     IEnumerator GiveResource(Resource target)
     {
+        state = "Delivering Resources";
         yield return new WaitForEndOfFrame();
         Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
 
@@ -95,10 +100,13 @@ public class Carrier : UnitBase
             yield break;
         }
 
+        state = "Waiting to Transfer";
         while (target.TransferBusy)
-        {
+        {            
             yield return new WaitForSeconds(UpdateFrequency);
         }
+
+        state = "Transferring";
         resource.TransferTo(target);
 
         yield return new WaitForSeconds(UpdateFrequency);

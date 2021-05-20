@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             lead.GetComponent<Threat>().StartThreat();
             for (int x = 0; x < SpawnCount; x++) 
             {
-                GameObject go = Instantiate(ThreatPrefab, spawnPos + (Random.insideUnitSphere * 200f), new Quaternion(), ThreatRoot.transform);
+                GameObject go = Instantiate(ThreatPrefab, spawnPos + (Random.insideUnitSphere * 50f), new Quaternion(), ThreatRoot.transform);
                 go.GetComponent<Threat>().rad = mapGen.CubeSize * mapGen.GridSize / 2f;
                 go.GetComponent<Threat>().StartThreat(lead.GetComponent<Threat>());
             }

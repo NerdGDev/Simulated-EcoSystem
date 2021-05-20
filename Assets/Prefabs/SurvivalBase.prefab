@@ -155,7 +155,8 @@ MonoBehaviour:
   MiningRange: 1500
   FighterPrefabs:
   - {fileID: 6813215779635259640, guid: a66dd847688089147af6c54ded45d0a8, type: 3}
-  FighterMax: 3
+  FighterMax: 1
+  FighterCurrent: 0
   FighterRange: 2500
 --- !u!114 &5553533526171169850
 MonoBehaviour:
@@ -172,7 +173,7 @@ MonoBehaviour:
   StartingPool: 2000
   MaxPool: 6000
   TransferRate: 150
-  TransferRange: 50
+  TransferRange: 300
   Pool: 0
   TransferBusy: 0
   Visualisation: 0

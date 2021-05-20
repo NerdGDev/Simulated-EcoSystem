@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using Resourcing;
 
 public class HomeManager : MonoBehaviour
@@ -10,8 +11,6 @@ public class HomeManager : MonoBehaviour
     public GameObject[] HangarBay;
 
     [Header("Attention Ranges")]
-    public float ExtractorRange;
-    public float StorageRange;
     public float HomeRange;
 
     [Header("Home Base Costs")]
@@ -50,6 +49,13 @@ public class HomeManager : MonoBehaviour
     private Dictionary<Threat, Fighter> FighterList = new Dictionary<Threat, Fighter>();
     #endregion
 
+    [Header("Debug")]
+    public bool d_homeRange;
+    public bool d_civilianRange;
+    public bool d_carrierRange;
+    public bool d_minerRange;
+    public bool d_fighterRange;
+
     public delegate void LaunchDelegate(GameObject go);
     protected Queue<LaunchDelegate> LaunchQueue = new Queue<LaunchDelegate>();
 
@@ -81,7 +87,7 @@ public class HomeManager : MonoBehaviour
 
     private void FindContainers()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, StorageRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, CarrierRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
         foreach (Collider col in hitColliders)
         {
             Container current = col.transform.GetComponent<Container>();
@@ -120,7 +126,7 @@ public class HomeManager : MonoBehaviour
 
     private void FindMinerals()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, StorageRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, MiningRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
         foreach (Collider col in hitColliders)
         {
             MineralMasterNode current = col.transform.GetComponent<MineralMasterNode>();
@@ -312,7 +318,7 @@ public class HomeManager : MonoBehaviour
             //Debug.LogError("Checking Mineral Assignement");
             if (item.Value.Count >= 0 && item.Value.Count < MinerMax)
             {
-
+                MinerCurrent--;
                 //Debug.LogError("Sending Miner to Queue");
                 MiningHandlers[item.Key].Add(null);
                 LaunchQueue.Enqueue((hangar) =>
@@ -369,11 +375,11 @@ public class HomeManager : MonoBehaviour
 
         foreach (Threat threat in threats) 
         {
-            if (!FighterList.ContainsKey(threat) && FighterCurrent > 0) 
+            if (!FighterList.ContainsKey(threat) && FighterCurrent > 0)
             {
                 Debug.LogWarning("Assinging Threat");
-                FighterList.Add(threat, null);
                 FighterCurrent--;
+                FighterList.Add(threat, null);                
                 LaunchQueue.Enqueue((hangar) =>
                 {
                     LaunchNewFighter(hangar, threat);
@@ -433,6 +439,7 @@ public class HomeManager : MonoBehaviour
         }
         else if (unit.type == ManageObject.ObjectType.MINER)
         {
+            MinerCurrent++;
             foreach (var item in MiningHandlers)
             {
                 if (item.Value.Contains(unit.GetComponent<Miner>()))
@@ -459,6 +466,39 @@ public class HomeManager : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        
+        if (d_homeRange) 
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, HomeRange);
+            Handles.Label(transform.position + new Vector3(HomeRange, 0, 0), "HomeRange");
+        }
+
+        if (d_civilianRange)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(transform.position, CivilianRange);
+            Handles.Label(transform.position + new Vector3(CivilianRange, 40, 0), "CivilianRange");
+        }
+
+        if (d_carrierRange)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, CarrierRange);
+            Handles.Label(transform.position + new Vector3(CarrierRange, -40, 0), "CarrierRange");
+        }
+
+        if (d_fighterRange)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, FighterRange);
+            Handles.Label(transform.position + new Vector3(FighterRange, 80, 0), "FighterRange");
+        }
+
+        if (d_minerRange)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, MiningRange);
+            Handles.Label(transform.position + new Vector3(MiningRange, -80, 0), "MiningRange");
+        }
     }
 }

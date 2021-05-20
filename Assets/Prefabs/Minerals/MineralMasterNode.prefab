@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NodeMax: 13
+  SpawnRate: 3
   MineralNode: {fileID: 3170423215431824637, guid: 829b091161987b84dbc122e8f633e41e,
     type: 3}
 --- !u!135 &4322592042478607958

@@ -27,5 +27,5 @@ MonoBehaviour:
   m_StaticObstacleFleeConfig:
     m_Enable: 1
     m_InSightDistanceBias: 5
-    m_SafeDistanceBias: 0.1
+    m_SafeDistanceBias: 5
     m_FleeColor: {r: 1, g: 1, b: 0, a: 0.1}

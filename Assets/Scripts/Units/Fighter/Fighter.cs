@@ -24,9 +24,9 @@ public class Fighter : UnitBase
 
     private void FixedUpdate()
     {
-        if (Pursuit) 
+        if (!Pursuit && !goingHome) 
         {
-            rb.AddForce(rb.velocity.normalized * 10f);
+            rb.AddForce(rb.velocity.normalized * 120f);
         }
     }
 
@@ -38,6 +38,12 @@ public class Fighter : UnitBase
 
     IEnumerator AttackTarget(Threat target) 
     {
+        state = "Engaging Threat";
+        if (target == null) 
+        {
+            NextOrder();
+            yield break;
+        }
         yield return new WaitForFixedUpdate();
 
         Coroutine coA = StartCoroutine(PursuitTarget(target));
@@ -57,6 +63,7 @@ public class Fighter : UnitBase
         {
             if (hit.GetComponent<Threat>())
             {
+                this.target = hit.GetComponent<Threat>();
                 StartCoroutine(AttackTarget(hit.GetComponent<Threat>()));
                 yield break;
             }
@@ -72,11 +79,11 @@ public class Fighter : UnitBase
         yield return new WaitForFixedUpdate();
         while (true && target != null)
         {
-            if (!m_Agent.HasDestination() || (target.transform.position - lastPos).magnitude > retargetRange) 
+            if (!m_Agent.HasDestination() || Vector3.Distance(target.transform.position, lastPos) > retargetRange) 
             {
                 m_Agent.SetDestination(target.transform.position);
             }
-            rb.AddForce((transform.position - target.transform.position).normalized * 12f);
+            rb.AddForce((target.transform.position - transform.position).normalized * (Vector3.Distance(target.transform.position, lastPos)/1.5f));
             yield return new WaitForFixedUpdate();
         }
     }
@@ -89,7 +96,7 @@ public class Fighter : UnitBase
             if ((transform.position - target.transform.position).magnitude < range) 
             {
                 StartCoroutine(Shoot(target));
-                yield return new WaitForSeconds(0.75f);
+                yield return new WaitForSeconds(0.2f);
             }
             yield return new WaitForFixedUpdate();
         }
@@ -99,11 +106,23 @@ public class Fighter : UnitBase
     {
         Debug.LogWarning("FIRE FIRE FIRE");
         m_Particle = Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(target.transform.position - transform.position));
-        ParticleSystem ps = m_Particle.GetComponent<ParticleSystem>();
+        ParticleSystem ps = m_Particle.GetComponent<ParticleSystem>();        
         var main = ps.main;
         main.startLifetime = ((target.transform.position - transform.position).magnitude / main.startSpeed.constant) + 0.1f;
+        ps.Play();
+        StartCoroutine(UpdateParticleAim(m_Particle, target));
         yield return new WaitForSeconds((target.transform.position - transform.position).magnitude / main.startSpeed.constant);
+        StopCoroutine(UpdateParticleAim(m_Particle, target));
         Destroy(ps.gameObject);
         target.Hit();
+    }
+
+    IEnumerator UpdateParticleAim(GameObject ps, Threat target) 
+    {
+        while (true) 
+        {
+            ps.transform.rotation = Quaternion.LookRotation(target.transform.position - ps.transform.position);
+            yield return new WaitForFixedUpdate();
+        }
     }
 }

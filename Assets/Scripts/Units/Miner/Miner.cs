@@ -22,12 +22,13 @@ public class Miner : UnitBase
 
     public void MineFromNode(MineralMasterNode masterNode)
     {
-        AddOrder((go) => { StartCoroutine(Goto(masterNode.gameObject)); });
+        AddOrder((go) => { StartCoroutine(Goto(masterNode.gameObject, 50f)); });
         AddOrder((go) => { StartCoroutine(SearchForNodes(masterNode)); });
     }
 
     IEnumerator SearchForNodes(MineralMasterNode masterNode) 
     {
+        state = "Searching for New Nodes";
         yield return new WaitForFixedUpdate();
         float poolLimit = resource.MaxPool - resource.Pool;
         foreach (MineralNode node in masterNode.m_Nodes) 
@@ -40,9 +41,9 @@ public class Miner : UnitBase
                 AddOrder((go) => { StartCoroutine(Goto(node.gameObject)); });
                 AddOrder((go) => { StartCoroutine(HarvestNode(node)); });                
                 poolLimit = poolLimit - node.value;
-            }
-            yield return new WaitForFixedUpdate();
+            }            
         }
+        yield return new WaitForFixedUpdate();
         AddOrder((go) => { StartCoroutine(Goto(home.gameObject)); });
         AddOrder((go) => { StartCoroutine(GiveResource(home.gameObject.GetComponent<Resource>())); });
         NextOrder(); 
@@ -50,6 +51,7 @@ public class Miner : UnitBase
 
     IEnumerator GiveResource(Resource target)
     {
+        state = "Delivering Resources";
         yield return new WaitForEndOfFrame();
         Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange);
 
@@ -87,6 +89,7 @@ public class Miner : UnitBase
 
     IEnumerator HarvestNode(MineralNode node) 
     {
+        state = "Harvesting node - value : " + node.value;
         //Debug.LogWarning("Harvesting Node");
         yield return new WaitForFixedUpdate();
         StartCoroutine(StartMiningAnim(node));

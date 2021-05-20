@@ -85,6 +85,10 @@ namespace Resourcing
                     Pool += overflow;
                     break;
                 }
+                else 
+                {
+                    Debug.Log("Fail");
+                }
 
 
                 yield return new WaitForEndOfFrame();
@@ -159,6 +163,12 @@ namespace Resourcing
         {
             yield return new WaitForFixedUpdate();
             Destroy(m_Particle);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, TransferRange);
         }
 
     }

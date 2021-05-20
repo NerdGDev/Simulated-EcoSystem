@@ -11,6 +11,7 @@ namespace Resourcing
         Rigidbody rb;
 
         public int NodeMax;
+        public float SpawnRate;
         public GameObject MineralNode;
 
         public List<MineralNode> m_Nodes { get; private set; } = new List<MineralNode>();
@@ -36,7 +37,7 @@ namespace Resourcing
                     m_Nodes.Add(go.GetComponent<MineralNode>());
                     go.GetComponent<MineralNode>().master = this;
                 }
-                yield return new WaitForSeconds(Random.Range(3f, 10f));
+                yield return new WaitForSeconds(Random.Range(SpawnRate / 2f, SpawnRate * 2f));
                 yield return new WaitForFixedUpdate();
             }
         }

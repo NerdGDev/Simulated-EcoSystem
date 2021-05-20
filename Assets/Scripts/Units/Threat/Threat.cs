@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Threat : UnitBase
 {
+    Rigidbody rb;
     public float rad;
     public int health;
 
     private void Awake()
     {
         base.Awake();
+        rb = GetComponent<Rigidbody>();
+        rb.maxAngularVelocity = 100f;        
+        m_Agent.m_BrakingDistance = 20f;
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddForce(rb.velocity.normalized * 40f);
     }
 
     public void Hit() 
@@ -70,8 +79,11 @@ public class Threat : UnitBase
         {
             if (!m_Agent.HasDestination() || (threat.transform.position - lastPos).magnitude > retargetRange)
             {
-                m_Agent.SetDestination(threat.transform.position);
+                Vector3 newPos = threat.transform.position + (Random.insideUnitSphere * 50f);
+                lastPos = newPos;
+                m_Agent.SetDestination(newPos);
             }
+            
             yield return new WaitForFixedUpdate();
         }
         StartThreat();
