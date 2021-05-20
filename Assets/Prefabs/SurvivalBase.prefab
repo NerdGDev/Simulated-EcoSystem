@@ -69,11 +69,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6261611327537563112}
-  - component: {fileID: 4464014714126671939}
   - component: {fileID: 10720048010490819}
   - component: {fileID: 5553533526171169850}
   - component: {fileID: 1186103263356791666}
   - component: {fileID: 3554719324999352664}
+  - component: {fileID: 4464014714126671939}
   m_Layer: 0
   m_Name: SurvivalBase
   m_TagString: Untagged
@@ -103,20 +103,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4464014714126671939
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6261611327537563111}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 6.5
-  m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &10720048010490819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,32 +118,35 @@ MonoBehaviour:
   HangarBay:
   - {fileID: 584058147934706355}
   - {fileID: 750727416703244402}
-  ExtractorRange: 1500
-  StorageRange: 900
-  HomeRange: 3000
-  ResourceConsumptionRate: 120
+  HomeRange: 1350
+  ResourceConsumptionRate: 600
   CivilianPrefabs:
   - {fileID: 1713849280246055450, guid: 83b17d195a0fb5d4db20a03d1d77753f, type: 3}
   - {fileID: 1748852993431806244, guid: a96b891bac80e124b9647c9e3c44a748, type: 3}
-  CivilianMax: 12
+  CivilianMax: 8
   CurrentCivilians: 0
-  CivilianRange: 2000
+  CivilianRange: 1200
   CarrierPrefabs:
   - {fileID: 2188996167325032341, guid: cd517a499d938e444bcb0641b5a545a5, type: 3}
   - {fileID: 8709357228797955563, guid: c31153e6c68e201409c084a15c334651, type: 3}
-  CarrierMax: 5
+  CarrierMax: 4
   CarrierCurrent: 0
-  CarrierRange: 3000
+  CarrierRange: 900
   MinerPrefabs:
   - {fileID: 4535513381549550483, guid: 0167f5b5e010e1c439edcd6d41c5c2b0, type: 3}
   MinerMax: 3
   MinerCurrent: 0
-  MiningRange: 1500
+  MiningRange: 750
   FighterPrefabs:
   - {fileID: 6813215779635259640, guid: a66dd847688089147af6c54ded45d0a8, type: 3}
-  FighterMax: 1
+  FighterMax: 2
   FighterCurrent: 0
-  FighterRange: 2500
+  FighterRange: 1000
+  d_homeRange: 0
+  d_civilianRange: 0
+  d_carrierRange: 0
+  d_minerRange: 0
+  d_fighterRange: 0
 --- !u!114 &5553533526171169850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +167,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -205,6 +195,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54acb16a70f40704f88f6a4c4be289f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &4464014714126671939
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261611327537563111}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 6.5
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100398991513710673
 PrefabInstance:
   m_ObjectHideFlags: 0

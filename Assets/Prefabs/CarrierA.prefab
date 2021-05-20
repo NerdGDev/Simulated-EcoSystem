@@ -71,11 +71,12 @@ MonoBehaviour:
   StartingPool: 0
   MaxPool: 800
   TransferRate: 20
-  TransferRange: 300
+  TransferRange: 120
   Pool: 0
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}

@@ -23,6 +23,7 @@ namespace Resourcing
         [Header("Visualised")]
         public bool Visualisation;
         public bool DisplayPool;
+        public bool ShowRange;
 
         public Collider m_Collider;
 
@@ -91,7 +92,7 @@ namespace Resourcing
                 }
 
 
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForFixedUpdate();
             }
             _UnlockTransfer(sender);
         }
@@ -167,8 +168,11 @@ namespace Resourcing
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, TransferRange);
+            if (ShowRange) 
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(transform.position, TransferRange);
+            }            
         }
 
     }

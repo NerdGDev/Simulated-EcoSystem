@@ -52,9 +52,9 @@ public class Miner : UnitBase
     IEnumerator GiveResource(Resource target)
     {
         state = "Delivering Resources";
-        yield return new WaitForEndOfFrame();
-        Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange);
-
+        yield return new WaitForFixedUpdate();
+        Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
+        state = "Finding Station";
         bool found = false;
         foreach (var hitCollider in hitColliders)
         {
@@ -66,15 +66,18 @@ public class Miner : UnitBase
         }
         if (!found)
         {
-            //Debug.LogError("NO TARGET");
+            state = "NO TARGET";
             NextOrder();
             yield break;
         }
 
+        state = "Waiting to Transfer";
         while (target.TransferBusy)
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }
+
+        state = "Transferring";
         resource.TransferTo(target);
 
         yield return new WaitForSeconds(UpdateFrequency);

@@ -121,7 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &22468482
+--- !u!1 &15505920
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,8 +129,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 22468483}
-  - component: {fileID: 22468484}
+  - component: {fileID: 15505921}
+  - component: {fileID: 15505922}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -138,27 +138,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &22468483
+--- !u!4 &15505921
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22468482}
+  m_GameObject: {fileID: 15505920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500, y: -500, z: -500}
+  m_LocalPosition: {x: 500, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 17
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &22468484
+--- !u!114 &15505922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22468482}
+  m_GameObject: {fileID: 15505920}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &38960733
+--- !u!1 &29848984
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,8 +184,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 38960734}
-  - component: {fileID: 38960735}
+  - component: {fileID: 29848985}
+  - component: {fileID: 29848986}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -193,247 +193,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &38960734
+--- !u!4 &29848985
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38960733}
+  m_GameObject: {fileID: 29848984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: 500, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &38960735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38960733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &245199167
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 245199168}
-  - component: {fileID: 245199169}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &245199168
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245199167}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: 500, z: -500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &245199169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245199167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &255967681
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 255967682}
-  - component: {fileID: 255967683}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &255967682
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255967681}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: -500, z: 500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &255967683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255967681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &281724794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 281724795}
-  - component: {fileID: 281724796}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &281724795
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281724794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &281724796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281724794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &307003151
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 307003152}
-  - component: {fileID: 307003153}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &307003152
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307003151}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &307003153
+--- !u!114 &29848986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307003151}
+  m_GameObject: {fileID: 29848984}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -451,7 +231,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &526832323
+--- !u!1 &47021571
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -459,8 +239,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 526832324}
-  - component: {fileID: 526832325}
+  - component: {fileID: 47021572}
+  - component: {fileID: 47021573}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -468,27 +248,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &526832324
+--- !u!4 &47021572
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526832323}
+  m_GameObject: {fileID: 47021571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: 500}
+  m_LocalPosition: {x: 0, y: -500, z: 500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 5
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &526832325
+--- !u!114 &47021573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526832323}
+  m_GameObject: {fileID: 47021571}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -506,7 +286,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &544317269
+--- !u!1 &61363662
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -514,8 +294,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 544317270}
-  - component: {fileID: 544317271}
+  - component: {fileID: 61363663}
+  - component: {fileID: 61363664}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -523,82 +303,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &544317270
+--- !u!4 &61363663
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544317269}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -500, z: -500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &544317271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544317269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &580715320
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 580715321}
-  - component: {fileID: 580715322}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &580715321
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580715320}
+  m_GameObject: {fileID: 61363662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 500, y: -500, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &580715322
+--- !u!114 &61363664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580715320}
+  m_GameObject: {fileID: 61363662}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -616,7 +341,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &842864040
+--- !u!1 &114187280
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -624,8 +349,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 842864041}
-  - component: {fileID: 842864042}
+  - component: {fileID: 114187281}
+  - component: {fileID: 114187282}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -633,27 +358,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &842864041
+--- !u!4 &114187281
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842864040}
+  m_GameObject: {fileID: 114187280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -500, z: 0}
+  m_LocalPosition: {x: 500, y: 500, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 10
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &842864042
+--- !u!114 &114187282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842864040}
+  m_GameObject: {fileID: 114187280}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -671,7 +396,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &983453628
+--- !u!1 &358750403
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -679,8 +404,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 983453629}
-  - component: {fileID: 983453630}
+  - component: {fileID: 358750404}
+  - component: {fileID: 358750405}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -688,13 +413,123 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &983453629
+--- !u!4 &358750404
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983453628}
+  m_GameObject: {fileID: 358750403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: 0, z: -500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &358750405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358750403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &574045243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574045244}
+  - component: {fileID: 574045245}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &574045244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574045243}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: -500, z: -500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &574045245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574045243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &632925629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 632925630}
+  - component: {fileID: 632925631}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &632925630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632925629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -702,13 +537,398 @@ Transform:
   m_Father: {fileID: 1057026882}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &983453630
+--- !u!114 &632925631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983453628}
+  m_GameObject: {fileID: 632925629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &633520355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633520356}
+  - component: {fileID: 633520357}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &633520356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633520355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 500, z: -500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &633520357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633520355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &658088335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 658088336}
+  - component: {fileID: 658088337}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &658088336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658088335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: 500, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &658088337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658088335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &717094964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717094965}
+  - component: {fileID: 717094966}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717094965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717094964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 500, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717094966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717094964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &783887245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783887246}
+  - component: {fileID: 783887247}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783887246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783887245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -500, y: -500, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &783887247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783887245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &913937501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913937502}
+  - component: {fileID: 913937503}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913937502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913937501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: -500, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &913937503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913937501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &923779419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923779420}
+  - component: {fileID: 923779421}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &923779420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923779419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -500, y: 500, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &923779421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923779419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &1004059053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1004059054}
+  - component: {fileID: 1004059055}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1004059054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004059053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -500, y: -500, z: -500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004059055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004059053}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -732,7 +952,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1322877361}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1186783648
+--- !u!1 &1154866523
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -740,8 +960,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1186783649}
-  - component: {fileID: 1186783650}
+  - component: {fileID: 1154866524}
+  - component: {fileID: 1154866525}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -749,27 +969,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1186783649
+--- !u!4 &1154866524
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186783648}
+  m_GameObject: {fileID: 1154866523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -500, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 20
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1186783650
+--- !u!114 &1154866525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186783648}
+  m_GameObject: {fileID: 1154866523}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -787,7 +1007,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &1308128199
+--- !u!1 &1208005873
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -795,8 +1015,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1308128200}
-  - component: {fileID: 1308128201}
+  - component: {fileID: 1208005874}
+  - component: {fileID: 1208005875}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -804,27 +1024,82 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1308128200
+--- !u!4 &1208005874
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308128199}
+  m_GameObject: {fileID: 1208005873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 500, z: -500}
+  m_LocalPosition: {x: 0, y: -500, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 14
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1308128201
+--- !u!114 &1208005875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308128199}
+  m_GameObject: {fileID: 1208005873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &1283646609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283646610}
+  - component: {fileID: 1283646611}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1283646610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283646609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1283646611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283646609}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -932,7 +1207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78d69acfa42ef54ba096a86dd5b7df3, type: 3}
---- !u!1 &1379041519
+--- !u!1 &1395510589
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -940,8 +1215,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1379041520}
-  - component: {fileID: 1379041521}
+  - component: {fileID: 1395510590}
+  - component: {fileID: 1395510591}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -949,27 +1224,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1379041520
+--- !u!4 &1395510590
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379041519}
+  m_GameObject: {fileID: 1395510589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: -500}
+  m_LocalPosition: {x: -500, y: -500, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 19
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1379041521
+--- !u!114 &1395510591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379041519}
+  m_GameObject: {fileID: 1395510589}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -987,7 +1262,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &1500625748
+--- !u!1 &1408227285
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -995,8 +1270,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1500625749}
-  - component: {fileID: 1500625750}
+  - component: {fileID: 1408227286}
+  - component: {fileID: 1408227287}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -1004,82 +1279,192 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1500625749
+--- !u!4 &1408227286
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500625748}
+  m_GameObject: {fileID: 1408227285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 500, z: 500}
+  m_LocalPosition: {x: 500, y: 500, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1408227287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408227285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &1433174653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433174654}
+  - component: {fileID: 1433174655}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1433174654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433174653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -500, y: 0, z: -500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1433174655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433174653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &1462621041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1462621042}
+  - component: {fileID: 1462621043}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1462621042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462621041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057026882}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1462621043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462621041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinNodeSize: 2
+  m_LoosenessVal: 1
+  m_MinWorldSize: 500
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_QueryTriggerInteraction: 0
+  m_ShownStaticBounds: 1
+  m_ShowDepthOrder: 5
+  m_ShownStaticObject: 0
+  m_ShownStaticCollision: 0
+  m_BoundsAlphaStatic: 0.5
+--- !u!1 &1569286460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569286461}
+  - component: {fileID: 1569286462}
+  m_Layer: 0
+  m_Name: MapBakerNode(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1569286461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569286460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 500, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1500625750
+--- !u!114 &1569286462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500625748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &1572037724
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1572037725}
-  - component: {fileID: 1572037726}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1572037725
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572037724}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -500, z: 500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1572037726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572037724}
+  m_GameObject: {fileID: 1569286460}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -1112,7 +1497,7 @@ PrefabInstance:
     - target: {fileID: 10720048010490819, guid: eefbb943b31090c45a73118868e0a93f,
         type: 3}
       propertyPath: FighterMax
-      value: 12
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 10720048010490819, guid: eefbb943b31090c45a73118868e0a93f,
         type: 3}
@@ -1226,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eefbb943b31090c45a73118868e0a93f, type: 3}
---- !u!1 &1685456702
+--- !u!1 &1837786518
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1234,8 +1619,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1685456703}
-  - component: {fileID: 1685456704}
+  - component: {fileID: 1837786519}
+  - component: {fileID: 1837786520}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -1243,27 +1628,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1685456703
+--- !u!4 &1837786519
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685456702}
+  m_GameObject: {fileID: 1837786518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500, y: 500, z: -500}
+  m_LocalPosition: {x: -500, y: 0, z: 500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 22
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1685456704
+--- !u!114 &1837786520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685456702}
+  m_GameObject: {fileID: 1837786518}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -1281,7 +1666,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &1697277927
+--- !u!1 &1960656280
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1289,8 +1674,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1697277928}
-  - component: {fileID: 1697277929}
+  - component: {fileID: 1960656281}
+  - component: {fileID: 1960656282}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -1298,27 +1683,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1697277928
+--- !u!4 &1960656281
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697277927}
+  m_GameObject: {fileID: 1960656280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: -500, z: -500}
+  m_LocalPosition: {x: -500, y: 500, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057026882}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1697277929
+--- !u!114 &1960656282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697277927}
+  m_GameObject: {fileID: 1960656280}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -1336,7 +1721,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &1714367631
+--- !u!1 &2087344226
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1344,8 +1729,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1714367632}
-  - component: {fileID: 1714367633}
+  - component: {fileID: 2087344227}
+  - component: {fileID: 2087344228}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -1353,233 +1738,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1714367632
+--- !u!4 &2087344227
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714367631}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: -500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1714367633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714367631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &1877414851
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1877414852}
-  - component: {fileID: 1877414853}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1877414852
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877414851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: -500, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1877414853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877414851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &1903006766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1903006767}
-  - component: {fileID: 1903006768}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1903006767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903006766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500, y: 500, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1903006768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903006766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &1965205882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1965205883}
-  - component: {fileID: 1965205884}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1965205883
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965205882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 500, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1965205884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965205882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &2083754592
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2083754593}
-  - component: {fileID: 2083754594}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2083754593
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083754592}
+  m_GameObject: {fileID: 2087344226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -500, y: 500, z: 500}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1587,13 +1752,13 @@ Transform:
   m_Father: {fileID: 1057026882}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2083754594
+--- !u!114 &2087344228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083754592}
+  m_GameObject: {fileID: 2087344226}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
@@ -1611,7 +1776,7 @@ MonoBehaviour:
   m_ShownStaticObject: 0
   m_ShownStaticCollision: 0
   m_BoundsAlphaStatic: 0.5
---- !u!1 &2092028655
+--- !u!1 &2093990408
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1619,8 +1784,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2092028656}
-  - component: {fileID: 2092028657}
+  - component: {fileID: 2093990409}
+  - component: {fileID: 2093990410}
   m_Layer: 0
   m_Name: MapBakerNode(Clone)
   m_TagString: Untagged
@@ -1628,68 +1793,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2092028656
+--- !u!4 &2093990409
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092028655}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500, y: 500, z: 500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1057026882}
-  m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2092028657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092028655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinNodeSize: 2
-  m_LoosenessVal: 1
-  m_MinWorldSize: 500
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_QueryTriggerInteraction: 0
-  m_ShownStaticBounds: 1
-  m_ShowDepthOrder: 5
-  m_ShownStaticObject: 0
-  m_ShownStaticCollision: 0
-  m_BoundsAlphaStatic: 0.5
---- !u!1 &2117995544
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2117995545}
-  - component: {fileID: 2117995546}
-  m_Layer: 0
-  m_Name: MapBakerNode(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2117995545
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117995544}
+  m_GameObject: {fileID: 2093990408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -500, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1697,13 +1807,13 @@ Transform:
   m_Father: {fileID: 1057026882}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2117995546
+--- !u!114 &2093990410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117995544}
+  m_GameObject: {fileID: 2093990408}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8698e097573f7e54da7d706cee3826fe, type: 3}

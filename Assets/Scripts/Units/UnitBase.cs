@@ -108,7 +108,7 @@ public class UnitBase : ManageObject
     protected IEnumerator Goto(GameObject target, float accuracy)
     {
         state = "Traveling to Destination";
-        if (target.GetComponent<Collider>())
+        if (target.GetComponent<SphereCollider>())
         {
             m_Agent.m_ArrivedDistance =
                 target.GetComponent<SphereCollider>().radius * 1.2f > 25f ?

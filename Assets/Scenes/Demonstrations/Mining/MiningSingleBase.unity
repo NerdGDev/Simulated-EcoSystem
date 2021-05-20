@@ -302,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 6772353324101954125, guid: 97d728615b708fe49a0fa0e5ca5b5902,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6772353324101954125, guid: 97d728615b708fe49a0fa0e5ca5b5902,
         type: 3}
@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 10720048010490819, guid: eefbb943b31090c45a73118868e0a93f,
         type: 3}
       propertyPath: MiningRange
-      value: 1000
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 10720048010490819, guid: eefbb943b31090c45a73118868e0a93f,
         type: 3}

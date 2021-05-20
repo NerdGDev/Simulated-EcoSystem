@@ -29,16 +29,16 @@ public class Carrier : UnitBase
 
     public void DeliverResource(Resource from, Resource to) 
     {
-        AddOrder((go) => { StartCoroutine(Goto(from.gameObject, 75f)); });
+        AddOrder((go) => { StartCoroutine(Goto(from.gameObject, 10f)); });
         AddOrder((go) => { StartCoroutine(TakeResource(from)); });
-        AddOrder((go) => { StartCoroutine(Goto(to.gameObject, 90f)); });
+        AddOrder((go) => { StartCoroutine(Goto(to.gameObject, 20f)); });
         AddOrder((go) => { StartCoroutine(GiveResource(to)); });
     }
 
     IEnumerator TakeResource(Resource target) 
     {
         state = "Collecting Resources";
-        yield return new WaitForUpdate();
+        yield return new WaitForFixedUpdate();
         //Debug.Log(m_Collider);
         //Debug.Log(resource);
         Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
@@ -81,7 +81,7 @@ public class Carrier : UnitBase
     IEnumerator GiveResource(Resource target)
     {
         state = "Delivering Resources";
-        yield return new WaitForEndOfFrame();
+        yield return new  WaitForFixedUpdate();
         Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
 
         bool found = false;

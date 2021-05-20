@@ -214,11 +214,12 @@ public class HomeManager : MonoBehaviour
     {
         foreach (var item in HomeManagerHandlers)
         {
-            if (CurrentCivilians > 0) 
+            if (CurrentCivilians > 0 && resource.Pool > 300) 
             {
                 float weight = (transform.position - item.transform.position).magnitude / HomeRange;
                 if (weight > Random.Range(0f, 1f)) 
                 {
+                    resource.Pool -= 25;
                     CurrentCivilians--;
                     LaunchQueue.Enqueue((hangar) =>
                     {
@@ -435,6 +436,7 @@ public class HomeManager : MonoBehaviour
         }
         else if (unit.type == ManageObject.ObjectType.CIVILIAN)
         {
+            resource.Pool += 25;
             CurrentCivilians++;
         }
         else if (unit.type == ManageObject.ObjectType.MINER)
