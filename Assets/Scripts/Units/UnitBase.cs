@@ -23,13 +23,18 @@ public class UnitBase : ManageObject
 
     public HomeManager home;
 
+    protected Rigidbody rb;
+
     public virtual void Awake()
     {
         state = "Awake";
+        SendShortData("State", state);
         m_Agent = GetComponent<FlyAgent.Agents.FlyAgent>();
         m_Collider = GetComponent<Collider>();
         //Debug.Log(m_Agent);
         type = ObjectType.BASE;
+
+        rb = GetComponent<Rigidbody>();
     }
 
     // Start is called before the first frame update
@@ -44,6 +49,15 @@ public class UnitBase : ManageObject
 
     }
 
+    protected void FixedUpdate()
+    {
+        SendData("Speed", rb.velocity.magnitude.ToString());
+        if (m_Agent.HasDestination()) 
+        {
+            SendData("DistanceToTarget", Vector3.Distance(transform.position, m_Agent.GetDestination()).ToString());
+        }        
+    }
+
     protected void AddOrder(OrderDelegate order)
     {
         OrderQueue.Enqueue(order);
@@ -56,6 +70,7 @@ public class UnitBase : ManageObject
     protected void NextOrder()
     {
         state = "Thinking";
+        SendShortData("State", state);
         OrderQueue.Dequeue();
         if (OrderQueue.Count > 0)
         {
@@ -73,6 +88,7 @@ public class UnitBase : ManageObject
     protected IEnumerator Goto(GameObject target)
     {
         state = "Traveling to Destination";
+        SendShortData("State", state);
         if (target.GetComponent<SphereCollider>())
         {
             m_Agent.m_ArrivedDistance = 
@@ -108,6 +124,7 @@ public class UnitBase : ManageObject
     protected IEnumerator Goto(GameObject target, float accuracy)
     {
         state = "Traveling to Destination";
+        SendShortData("State", state);
         if (target.GetComponent<SphereCollider>())
         {
             m_Agent.m_ArrivedDistance =
@@ -143,6 +160,7 @@ public class UnitBase : ManageObject
     protected IEnumerator LandAtHome() 
     {
         state = "Landing at Home";
+        SendShortData("State", state);
         goingHome = true;
         yield return new WaitForSeconds(UpdateFrequency);
 
@@ -157,6 +175,7 @@ public class UnitBase : ManageObject
         //Debug.Log("Docking Sent");
 
         state = "Traveling to Home";
+        SendShortData("State", state);
         while (m_Agent.HasDestination() && (m_Agent.m_Pilot.m_PathState != Pilot.ePathState.Idle || !(m_Agent.m_Pilot.m_PathState >= (Pilot.ePathState)100)))
         {
             yield return new WaitForSeconds(UpdateFrequency);
@@ -176,6 +195,7 @@ public class UnitBase : ManageObject
     protected IEnumerator Land(HomeManager manager)
     {
         state = "Landing at new Home";
+        SendShortData("State", state);
         goingHome = true;
         yield return new WaitForSeconds(UpdateFrequency);
 
@@ -202,8 +222,23 @@ public class UnitBase : ManageObject
 
     }
 
+    protected void SendData(string field, string content) 
+    {
+        GetComponent<Visualise>().AddDataField(field, content);
+    }
+
+    protected void SendShortData(string field, string content) 
+    {
+        if (field == "State") 
+        {
+            SendData("State", content);
+        }
+        GetComponent<Visualise>().AddShortData(field, content);
+    }
+
     private void OnDrawGizmosSelected()
     {
+        
         GizmosExtend.DrawLabel(transform.position + new Vector3(0, 4, 0), state);
     }
 }

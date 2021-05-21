@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using Resourcing;
 
+[RequireComponent(typeof(Visualise))]
 public class HomeManager : MonoBehaviour
 {
     [Header("Home HangarBays")]
@@ -83,6 +84,11 @@ public class HomeManager : MonoBehaviour
         StartCoroutine(CarrierUpdater());
         StartCoroutine(MinerUpdater());
         StartCoroutine(FighterUpdater());
+
+        SendData("Monitoring",
+            "\nContainers / Extractors :" + ContainerHandlers.Count.ToString() +
+            "\nBases                   :" + HomeManagerHandlers.Count.ToString() +
+            "\nMineral Deposits        :" + MiningHandlers.Count.ToString());
     }
 
     private void FindContainers()
@@ -145,6 +151,8 @@ public class HomeManager : MonoBehaviour
     private void FixedUpdate()
     {
         resource.Pool = resource.Pool - (m_RCRSecond * Time.fixedDeltaTime) < 0 ? 0 : resource.Pool - (m_RCRSecond * Time.fixedDeltaTime);
+        SendData("Threats: ", FighterList.Count.ToString());
+        SendData("Pool", resource.Pool.ToString());
     }
 
     IEnumerator HangarLaunch()
@@ -360,7 +368,7 @@ public class HomeManager : MonoBehaviour
     }
 
     void UpdateFighterMissions()
-    {
+    {        
         Debug.LogWarning("Updating Fighters");
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, FighterRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
         List<Threat> threats = new List<Threat>();
@@ -371,6 +379,14 @@ public class HomeManager : MonoBehaviour
             {
                 threats.Add(hit.GetComponent<Threat>());
                 Debug.LogWarning("Adding Hit");
+            }
+        }
+
+        foreach (Threat threat in FighterList.Keys) 
+        {
+            if (threat == null) 
+            {
+                FighterList.Remove(threat);
             }
         }
 
@@ -502,5 +518,19 @@ public class HomeManager : MonoBehaviour
             Gizmos.DrawWireSphere(transform.position, MiningRange);
             Handles.Label(transform.position + new Vector3(MiningRange, -80, 0), "MiningRange");
         }
+    }
+
+    protected void SendData(string field, string content)
+    {
+        GetComponent<Visualise>().AddDataField(field, content);
+    }
+
+    protected void SendShortData(string field, string content)
+    {
+        if (field == "State")
+        {
+            SendData("State", content);
+        }
+        GetComponent<Visualise>().AddShortData(field, content);
     }
 }

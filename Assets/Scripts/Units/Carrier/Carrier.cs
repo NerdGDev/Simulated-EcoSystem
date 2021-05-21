@@ -27,6 +27,12 @@ public class Carrier : UnitBase
         
     }
 
+    private void FixedUpdate()
+    {
+        base.FixedUpdate();
+        SendData("Pool", resource.Pool.ToString());
+    }
+
     public void DeliverResource(Resource from, Resource to) 
     {
         AddOrder((go) => { StartCoroutine(Goto(from.gameObject, 10f)); });
@@ -38,6 +44,7 @@ public class Carrier : UnitBase
     IEnumerator TakeResource(Resource target) 
     {
         state = "Collecting Resources";
+        SendShortData("State", state);
         yield return new WaitForFixedUpdate();
         //Debug.Log(m_Collider);
         //Debug.Log(resource);
@@ -60,12 +67,14 @@ public class Carrier : UnitBase
         }
 
         state = "Waiting to Transfer";
+        SendShortData("State", state);
         while (target.TransferBusy)
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }
 
         state = "Transferring";
+        SendShortData("State", state);
         resource.TransferFrom(target);
 
         yield return new WaitForSeconds(UpdateFrequency);
@@ -81,6 +90,7 @@ public class Carrier : UnitBase
     IEnumerator GiveResource(Resource target)
     {
         state = "Delivering Resources";
+        SendShortData("State", state);
         yield return new  WaitForFixedUpdate();
         Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
 
@@ -101,12 +111,14 @@ public class Carrier : UnitBase
         }
 
         state = "Waiting to Transfer";
+        SendShortData("State", state);
         while (target.TransferBusy)
         {            
             yield return new WaitForSeconds(UpdateFrequency);
         }
 
         state = "Transferring";
+        SendShortData("State", state);
         resource.TransferTo(target);
 
         yield return new WaitForSeconds(UpdateFrequency);

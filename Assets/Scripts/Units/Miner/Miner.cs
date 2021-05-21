@@ -26,9 +26,16 @@ public class Miner : UnitBase
         AddOrder((go) => { StartCoroutine(SearchForNodes(masterNode)); });
     }
 
+    private void FixedUpdate()
+    {
+        base.FixedUpdate();
+        SendData("Pool", resource.Pool.ToString());
+    }
+
     IEnumerator SearchForNodes(MineralMasterNode masterNode) 
     {
         state = "Searching for New Nodes";
+        SendShortData("State", state);
         yield return new WaitForFixedUpdate();
         float poolLimit = resource.MaxPool - resource.Pool;
         foreach (MineralNode node in masterNode.m_Nodes) 
@@ -52,9 +59,11 @@ public class Miner : UnitBase
     IEnumerator GiveResource(Resource target)
     {
         state = "Delivering Resources";
+        SendShortData("State", state);
         yield return new WaitForFixedUpdate();
         Collider[] hitColliders = Physics.OverlapSphere(m_Collider.bounds.center, resource.TransferRange, Physics.AllLayers, QueryTriggerInteraction.Collide);
         state = "Finding Station";
+        SendShortData("State", state);
         bool found = false;
         foreach (var hitCollider in hitColliders)
         {
@@ -67,17 +76,20 @@ public class Miner : UnitBase
         if (!found)
         {
             state = "NO TARGET";
+            SendShortData("State", state);
             NextOrder();
             yield break;
         }
 
         state = "Waiting to Transfer";
+        SendShortData("State", state);
         while (target.TransferBusy)
         {
             yield return new WaitForSeconds(UpdateFrequency);
         }
 
         state = "Transferring";
+        SendShortData("State", state);
         resource.TransferTo(target);
 
         yield return new WaitForSeconds(UpdateFrequency);
@@ -93,6 +105,7 @@ public class Miner : UnitBase
     IEnumerator HarvestNode(MineralNode node) 
     {
         state = "Harvesting node - value : " + node.value;
+        SendShortData("State", state);
         //Debug.LogWarning("Harvesting Node");
         yield return new WaitForFixedUpdate();
         StartCoroutine(StartMiningAnim(node));

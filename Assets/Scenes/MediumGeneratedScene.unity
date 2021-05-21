@@ -1380,6 +1380,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -1419,7 +1420,7 @@ MonoBehaviour:
   MiningRange: 750
   FighterPrefabs:
   - {fileID: 6813215779635259640, guid: a66dd847688089147af6c54ded45d0a8, type: 3}
-  FighterMax: 2
+  FighterMax: 3
   FighterCurrent: 0
   FighterRange: 1000
   d_homeRange: 0
@@ -2985,6 +2986,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -8933,6 +8935,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -8972,7 +8975,7 @@ MonoBehaviour:
   MiningRange: 750
   FighterPrefabs:
   - {fileID: 6813215779635259640, guid: a66dd847688089147af6c54ded45d0a8, type: 3}
-  FighterMax: 2
+  FighterMax: 3
   FighterCurrent: 0
   FighterRange: 1000
   d_homeRange: 0
@@ -12973,6 +12976,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -13012,7 +13016,7 @@ MonoBehaviour:
   MiningRange: 750
   FighterPrefabs:
   - {fileID: 6813215779635259640, guid: a66dd847688089147af6c54ded45d0a8, type: 3}
-  FighterMax: 2
+  FighterMax: 3
   FighterCurrent: 0
   FighterRange: 1000
   d_homeRange: 0
@@ -16356,6 +16360,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -61162,6 +61167,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -67002,6 +67008,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -67041,7 +67048,7 @@ MonoBehaviour:
   MiningRange: 750
   FighterPrefabs:
   - {fileID: 6813215779635259640, guid: a66dd847688089147af6c54ded45d0a8, type: 3}
-  FighterMax: 2
+  FighterMax: 3
   FighterCurrent: 0
   FighterRange: 1000
   d_homeRange: 0
@@ -67587,6 +67594,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -69343,6 +69351,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -96068,6 +96077,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -97178,6 +97188,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -111107,6 +111118,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -112132,6 +112144,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}
@@ -112171,7 +112184,7 @@ MonoBehaviour:
   MiningRange: 750
   FighterPrefabs:
   - {fileID: 6813215779635259640, guid: a66dd847688089147af6c54ded45d0a8, type: 3}
-  FighterMax: 2
+  FighterMax: 3
   FighterCurrent: 0
   FighterRange: 1000
   d_homeRange: 0
@@ -114951,6 +114964,7 @@ MonoBehaviour:
   TransferBusy: 0
   Visualisation: 0
   DisplayPool: 0
+  ShowRange: 0
   m_Collider: {fileID: 0}
   m_ParticleObject: {fileID: 8600734778600574414, guid: 76a6741ce1842c44db3fa4673d303424,
     type: 3}

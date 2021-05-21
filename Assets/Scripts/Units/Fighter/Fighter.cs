@@ -12,18 +12,23 @@ public class Fighter : UnitBase
 
     bool Pursuit = false;
 
-    Rigidbody rb;
+    
 
     void Awake()
     {
         base.Awake();
         type = ObjectType.FIGHTER;
-        rb = GetComponent<Rigidbody>();
         rb.maxAngularVelocity = 100f;
     }
 
     private void FixedUpdate()
     {
+        base.FixedUpdate();
+        SendData("Target", "No");
+        if (Pursuit) 
+        {
+            SendData("Target", "Yes");
+        }
         if (!Pursuit && !goingHome) 
         {
             rb.AddForce(rb.velocity.normalized * 120f);
@@ -39,6 +44,7 @@ public class Fighter : UnitBase
     IEnumerator AttackTarget(Threat target) 
     {
         state = "Engaging Threat";
+        SendShortData("State", state);
         if (target == null) 
         {
             NextOrder();

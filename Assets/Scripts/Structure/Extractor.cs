@@ -29,6 +29,9 @@ public class Extractor : Container
 
     void FixedUpdate()
     {
+        base.FixedUpdate();
         resource.Pool = resource.Pool + (GenRateSecond * Time.fixedDeltaTime) > resource.MaxPool ? resource.MaxPool : resource.Pool + (GenRateSecond * Time.fixedDeltaTime);
     }
+
+
 }

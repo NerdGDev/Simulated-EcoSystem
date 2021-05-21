@@ -30,17 +30,41 @@ public class PlayerExplorer : MonoBehaviour
     KeyCode leftKey = KeyCode.A;
     KeyCode rightKey = KeyCode.D;
 
+    Ray ray;
+    RaycastHit hit;
+    public GameObject Target;
+
+    PlayerUIHandle pUIHandle;
+
     private void Awake()
     {
         targetRot = transform.rotation;
         smoothedRot = transform.rotation;
         cameraRot = CameraArm.transform.rotation;
         rb = GetComponent<Rigidbody>();
+        pUIHandle = FindObjectOfType<PlayerUIHandle>();
     }
 
     private void Update()
     {
         HandleMovement();
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("MouseDown");
+            // Reset ray with new mouse position
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log("Hit");
+                Target = hit.collider.gameObject;
+                if (Target.GetComponent<Visualise>()) 
+                {                    
+                    pUIHandle.SetVisual(Target.GetComponent<Visualise>());
+                }
+                    
+                
+            }
+        }
     }
 
     void HandleMovement()
@@ -56,10 +80,6 @@ public class PlayerExplorer : MonoBehaviour
         float yawInput = Input.GetAxisRaw("Mouse X") * rotSpeed;
         float pitchInput = Input.GetAxisRaw("Mouse Y") * rotSpeed;
         float rollInput = GetInputAxis(rollCounterKey, rollClockwiseKey) * rollSpeed * Time.deltaTime;
-
-        Debug.Log(yawInput);
-        Debug.Log(pitchInput);
-        Debug.Log(numCollisionTouches);
 
         // Calculate rotation
         if (numCollisionTouches == 0)
