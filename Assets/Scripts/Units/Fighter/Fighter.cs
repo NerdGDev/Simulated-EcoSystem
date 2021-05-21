@@ -89,7 +89,7 @@ public class Fighter : UnitBase
             {
                 m_Agent.SetDestination(target.transform.position);
             }
-            rb.AddForce((target.transform.position - transform.position).normalized * (Vector3.Distance(target.transform.position, lastPos)/1.5f));
+            rb.AddForce((target.transform.position - transform.position).normalized * (Vector3.Distance(target.transform.position, transform.position)/1.5f));
             yield return new WaitForFixedUpdate();
         }
     }

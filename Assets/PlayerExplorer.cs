@@ -29,15 +29,20 @@ public class PlayerExplorer : MonoBehaviour
     KeyCode backwardKey = KeyCode.S;
     KeyCode leftKey = KeyCode.A;
     KeyCode rightKey = KeyCode.D;
+    KeyCode followKey = KeyCode.R;
 
     Ray ray;
     RaycastHit hit;
     public GameObject Target;
+    public bool followTarget;
+
+
 
     PlayerUIHandle pUIHandle;
 
     private void Awake()
     {
+        followTarget = false;
         targetRot = transform.rotation;
         smoothedRot = transform.rotation;
         cameraRot = CameraArm.transform.rotation;
@@ -64,6 +69,14 @@ public class PlayerExplorer : MonoBehaviour
                     
                 
             }
+        }
+        if (Input.GetKeyDown(followKey)) 
+        {
+            followTarget = !followTarget;
+        }
+        if (followTarget) 
+        {
+            GetComponent<Rigidbody>().AddForce(((Target.transform.position - transform.position).normalized * (Vector3.Distance(Target.transform.position, transform.position)) / 12f));
         }
     }
 
