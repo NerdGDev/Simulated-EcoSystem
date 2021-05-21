@@ -235,6 +235,7 @@ public class HomeManager : MonoBehaviour
                 {
                     resource.Pool -= 25;
                     CurrentCivilians--;
+                    SendShortData("Queued", "Civilian");
                     LaunchQueue.Enqueue((hangar) =>
                     {
                         LaunchNewCivilian(hangar, item);
@@ -286,6 +287,7 @@ public class HomeManager : MonoBehaviour
                     CarrierCurrent--;
                     ContainerHandlers[item.Key].Add(null);
                     //Debug.Log("Sending Carrier to Queue");
+                    SendShortData("Queued", "Carrier");
                     LaunchQueue.Enqueue((hangar) =>
                     {
                         LaunchNewCarrier(hangar, item.Key);
@@ -336,6 +338,7 @@ public class HomeManager : MonoBehaviour
                 MinerCurrent--;
                 //Debug.LogError("Sending Miner to Queue");
                 MiningHandlers[item.Key].Add(null);
+                SendShortData("Queued", "Miner");
                 LaunchQueue.Enqueue((hangar) =>
                 {
                     LaunchNewMiner(hangar, item.Key);
@@ -388,11 +391,18 @@ public class HomeManager : MonoBehaviour
             }
         }
 
-        foreach (Threat threat in FighterList.Keys) 
+        bool foundNull = true;
+        while (foundNull) 
         {
-            if (threat == null) 
+            foundNull = false;
+            foreach (var item in FighterList) 
             {
-                FighterList.Remove(threat);
+                if (item.Key == null) 
+                {
+                    foundNull = true;
+                    FighterList.Remove(item.Key);
+                    break;
+                }
             }
         }
 
@@ -402,7 +412,8 @@ public class HomeManager : MonoBehaviour
             {
                 Debug.LogWarning("Assinging Threat");
                 FighterCurrent--;
-                FighterList.Add(threat, null);                
+                FighterList.Add(threat, null);
+                SendShortData("Queued", "Fighter");
                 LaunchQueue.Enqueue((hangar) =>
                 {
                     LaunchNewFighter(hangar, threat);
@@ -474,20 +485,13 @@ public class HomeManager : MonoBehaviour
         } 
         else if (unit.type == ManageObject.ObjectType.FIGHTER) 
         {
-            FighterCurrent++;
-            foreach (var item in FighterList)
-            {
-                if (item.Value == this.GetComponent<Fighter>()) 
-                {
-                    FighterList.Remove(item.Key);
-                }
-            }
+            FighterCurrent++;           
 
         }
 
     }
 
-
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         if (d_homeRange) 
@@ -525,7 +529,7 @@ public class HomeManager : MonoBehaviour
             Handles.Label(transform.position + new Vector3(MiningRange, -80, 0), "MiningRange");
         }
     }
-
+#endif
     protected void SendData(string field, string content)
     {
         GetComponent<Visualise>().AddDataField(field, content);

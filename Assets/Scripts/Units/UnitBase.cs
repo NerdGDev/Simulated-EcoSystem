@@ -128,16 +128,16 @@ public class UnitBase : ManageObject
         if (target.GetComponent<SphereCollider>())
         {
             m_Agent.m_ArrivedDistance =
-                target.GetComponent<SphereCollider>().radius * 1.2f > 25f ?
-                target.GetComponent<SphereCollider>().radius * 1.2f : 25f;
+                target.GetComponent<SphereCollider>().radius * 5f > 100f ?
+                target.GetComponent<SphereCollider>().radius * 5f : 100f;
             m_Agent.m_BrakingDistance =
-                target.GetComponent<SphereCollider>().radius * 1.5f > 50f ?
-                target.GetComponent<SphereCollider>().radius * 1.5f : 50f;
+                target.GetComponent<SphereCollider>().radius * 7f > 150f ?
+                target.GetComponent<SphereCollider>().radius * 7f : 150f;
         }
         else
         {
-            m_Agent.m_BrakingDistance = 50f;
-            m_Agent.m_ArrivedDistance = 25f;
+            m_Agent.m_BrakingDistance = 125f;
+            m_Agent.m_ArrivedDistance = 75f;
         }
 
         //Debug.Log(gameObject.name);

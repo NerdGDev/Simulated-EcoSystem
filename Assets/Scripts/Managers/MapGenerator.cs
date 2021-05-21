@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.EditorCoroutines.Editor;
 using FlyAgent.Navigation;
+#if UNITY_EDITOR
+using Unity.EditorCoroutines.Editor;
+#endif
 
 public class MapGenerator : MonoBehaviour
 {
@@ -66,6 +68,7 @@ public class MapGenerator : MonoBehaviour
         
     }
 
+    #if UNITY_EDITOR
     public void BuildStructures() 
     {
         if (StructureRoot == null) 
@@ -368,6 +371,6 @@ public class MapGenerator : MonoBehaviour
             Gizmos.DrawWireSphere(DebugColliderPos, DebugSize);
         }
     }
-
+#endif
 
 }

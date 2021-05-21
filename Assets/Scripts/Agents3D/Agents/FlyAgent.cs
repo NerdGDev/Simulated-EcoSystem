@@ -212,8 +212,10 @@ namespace FlyAgent.Agents
 		#endregion // System
 
 		#region internal API
+
 		protected override void OnAgentInit()
 		{
+#if UNITY_EDITOR
 			if (InfoStyle == null)
 			{
 				Texture2D grayTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false, false);
@@ -233,6 +235,7 @@ namespace FlyAgent.Agents
 					border = new RectOffset(2,2,2,2),
 				};
 			}
+#endif
 
 			m_Size = new AgentSize(this);
 			m_Vehicle = new Vehicle(m_Rigidbody, Engine.Create(this, m_Rigidbody, CORE_COUNT), AirBrake.Create(m_Rigidbody));

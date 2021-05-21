@@ -466,7 +466,7 @@ PrefabInstance:
     - target: {fileID: 10720048010490819, guid: eefbb943b31090c45a73118868e0a93f,
         type: 3}
       propertyPath: FighterMax
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 10720048010490819, guid: eefbb943b31090c45a73118868e0a93f,
         type: 3}
@@ -1626,7 +1626,7 @@ PrefabInstance:
     - target: {fileID: 10720048010490819, guid: eefbb943b31090c45a73118868e0a93f,
         type: 3}
       propertyPath: FighterMax
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 10720048010490819, guid: eefbb943b31090c45a73118868e0a93f,
         type: 3}

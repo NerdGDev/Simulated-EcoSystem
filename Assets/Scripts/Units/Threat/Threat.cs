@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Threat : UnitBase
 {
-    Rigidbody rb;
     public float rad;
     public int health;
 
     private void Awake()
     {
         base.Awake();
-        rb = GetComponent<Rigidbody>();
         rb.maxAngularVelocity = 100f;        
         m_Agent.m_BrakingDistance = 20f;
     }

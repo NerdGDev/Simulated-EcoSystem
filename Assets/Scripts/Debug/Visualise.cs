@@ -22,10 +22,6 @@ public class Visualise : MonoBehaviour
     public void AddShortData(string field, string content) 
     {
         string built = field + " : " + content;
-        if (shortData.Contains(built)) 
-        {
-            shortData.Remove(built);
-        }
         StartCoroutine(ShortData(built));
     }
 
