@@ -5,7 +5,7 @@ using UnityEngine;
 public class Visualise : MonoBehaviour
 {
     Dictionary<string, string> dataFields = new Dictionary<string, string>();
-    Dictionary<string, string> shortData = new Dictionary<string, string>();
+    List<string> shortData = new List<string>();
 
     public void AddDataField(string field, string content) 
     {
@@ -21,27 +21,29 @@ public class Visualise : MonoBehaviour
 
     public void AddShortData(string field, string content) 
     {
-        if (shortData.ContainsKey(field)) 
+        string built = field + " : " + content;
+        if (shortData.Contains(built)) 
         {
-            shortData.Remove(field);
+            shortData.Remove(built);
         }
-        StartCoroutine(ShortData(field, content));
+        StartCoroutine(ShortData(built));
     }
 
-    IEnumerator ShortData(string field, string content) 
+    IEnumerator ShortData(string build) 
     {
-        shortData.Add(field, content);
-        yield return new WaitForSeconds(3f);
-        if (shortData.ContainsKey(field))
+        shortData.Add(build);
+        yield return new WaitForSeconds(12f);
+        if (shortData.Contains(build))
         {
-            shortData.Remove(field);
+            shortData.Remove(build);
         }
     }
 
 
-    public void GetDataFields(out Dictionary<string, string> infoData, out Dictionary<string, string> timedData) 
+    public void GetDataFields(out Dictionary<string, string> infoData, out List<string> timedData) 
     {
         infoData = dataFields;
-        timedData = shortData;
+        timedData = new List<string>(shortData);
+        timedData.Reverse();
     }
 }

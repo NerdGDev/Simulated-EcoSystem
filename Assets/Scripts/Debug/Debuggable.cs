@@ -4,32 +4,19 @@ using System.Text;
 using UnityEngine;
 using Kit;
 
+[RequireComponent(typeof(Visualise))]
 public class Debuggable : MonoBehaviour
 {
-    private StringBuilder debugReport;
-    private static GUIStyle InfoStyle;
+    private StringBuilder debugReport = new StringBuilder(1000);
+
+    Dictionary<string, string> dataFields = new Dictionary<string, string>();
+    List<string> shortData = new List<string>();
+
+    Visualise visualise;
 
     private void Awake()
     {
-        if (InfoStyle == null)
-        {
-            Texture2D grayTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false, false);
-            grayTexture.SetPixel(1, 1, Color.gray.CloneAlpha(0.5f));
-            grayTexture.alphaIsTransparency = true;
-            grayTexture.anisoLevel = 0;
-            grayTexture.Apply();
-            InfoStyle = new GUIStyle()
-            {
-                alignment = TextAnchor.UpperLeft,
-                normal = new GUIStyleState()
-                {
-                    textColor = Color.cyan,
-                    background = grayTexture,
-                },
-                padding = new RectOffset(3, 3, 3, 3),
-                border = new RectOffset(2, 2, 2, 2),
-            };
-        }
+        visualise = GetComponent<Visualise>();        
     }
 
     // Start is called before the first frame update
@@ -39,8 +26,23 @@ public class Debuggable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        visualise.GetDataFields(out dataFields, out shortData);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        debugReport.Remove(0, debugReport.Length);
+        foreach (var item in dataFields) 
+        {
+            debugReport.AppendLine(item.Key + " : " + item.Value);
+        }
+        debugReport.AppendLine("\n--Recent Events--");
+        foreach (var item in shortData)
+        {
+            debugReport.AppendLine(item);
+        }
+        GizmosExtend.DrawLabel(transform.position, debugReport.ToString());
     }
 }

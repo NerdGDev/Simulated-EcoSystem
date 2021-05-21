@@ -5,7 +5,7 @@ using Resourcing;
 
 namespace Resourcing 
 {    
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(Visualise))]
     public class MineralMasterNode : MonoBehaviour
     {
         Rigidbody rb;
@@ -14,17 +14,26 @@ namespace Resourcing
         public float SpawnRate;
         public GameObject MineralNode;
 
+        Visualise visualise;
+
         public List<MineralNode> m_Nodes { get; private set; } = new List<MineralNode>();
 
 
         private void Awake()
         {
+            visualise = GetComponent<Visualise>();
             rb = GetComponent<Rigidbody>();
             rb.angularVelocity = Random.onUnitSphere / 5f;
             StartCoroutine(ManageNode());
         }
 
-        
+        private void FixedUpdate()
+        {
+            if (visualise != null) 
+            {
+                visualise.AddDataField("Nodes", m_Nodes.Count.ToString());
+            }
+        }
 
         IEnumerator ManageNode() 
         {

@@ -87,8 +87,8 @@ public class HomeManager : MonoBehaviour
 
         SendData("Monitoring",
             "\nContainers / Extractors :" + ContainerHandlers.Count.ToString() +
-            "\nBases                   :" + HomeManagerHandlers.Count.ToString() +
-            "\nMineral Deposits        :" + MiningHandlers.Count.ToString());
+            "\nBases :" + HomeManagerHandlers.Count.ToString() +
+            "\nMineral Deposits :" + MiningHandlers.Count.ToString());
     }
 
     private void FindContainers()
@@ -151,8 +151,14 @@ public class HomeManager : MonoBehaviour
     private void FixedUpdate()
     {
         resource.Pool = resource.Pool - (m_RCRSecond * Time.fixedDeltaTime) < 0 ? 0 : resource.Pool - (m_RCRSecond * Time.fixedDeltaTime);
-        SendData("Threats: ", FighterList.Count.ToString());
+        SendData("Threats", FighterList.Count.ToString());
+        SendData("Fighters Deployed", (FighterMax - FighterCurrent).ToString());
         SendData("Pool", resource.Pool.ToString());
+        SendData("Docked", "");
+        SendData("Civilians", CurrentCivilians.ToString());
+        SendData("Carriers", CarrierCurrent.ToString());
+        SendData("Miners", MinerCurrent.ToString());
+        SendData("Fighters", FighterCurrent.ToString());
     }
 
     IEnumerator HangarLaunch()
@@ -325,7 +331,7 @@ public class HomeManager : MonoBehaviour
         foreach (var item in MiningHandlers)
         {
             //Debug.LogError("Checking Mineral Assignement");
-            if (item.Value.Count >= 0 && item.Value.Count < MinerMax)
+            if (MinerCurrent > 0)
             {
                 MinerCurrent--;
                 //Debug.LogError("Sending Miner to Queue");

@@ -238,7 +238,6 @@ public class UnitBase : ManageObject
 
     private void OnDrawGizmosSelected()
     {
-        
-        GizmosExtend.DrawLabel(transform.position + new Vector3(0, 4, 0), state);
+
     }
 }
